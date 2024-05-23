@@ -26,7 +26,7 @@ const UserNav = async () => {
           {user ? (
             <>
             <DropdownMenuItem>
-            Favourites
+            Bookmarks
             </DropdownMenuItem>
             <DropdownMenuItem>
             My Listings

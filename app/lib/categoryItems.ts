@@ -1,0 +1,49 @@
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBuilding, faBed, faHome, faMap, faHouse } from '@fortawesome/free-solid-svg-icons';
+
+interface iAppProps {
+  name: string;
+  title: string;
+  icon: IconDefinition;
+  description: string;
+  id: number;
+}
+
+export const categoryItems: iAppProps[] = [
+  {
+    id: 0,
+    name: "commercial",
+    description: "This property is commercial.",
+    title: "Commercial",
+    icon: faBuilding,
+  },
+  {
+    id: 1,
+    name: "hostels",
+    description: "This property is a hostel.",
+    title: "Hostels",
+    icon: faBed,
+  },
+  {
+    id: 2,
+    name: "residential",
+    description: "This property is residential.",
+    title: "Residential",
+    icon: faHome,
+  },
+  {
+    id: 3,
+    name: "land",
+    description: "This property is land.",
+    title: "Land",
+    icon: faMap,
+  },
+  {
+    id: 4,
+    name: "house",
+    description: "This property is a house.",
+    title: "House",
+    icon: faHouse,
+  },
+];

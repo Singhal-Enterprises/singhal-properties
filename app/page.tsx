@@ -1,12 +1,11 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import FilterItems from "@/components/FilterItems";
 
 export default function Home() {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
-      <div className="max-w-7xl w-full">
-        
-      </div>
-    </main>
+    <div className="container mx-auto px-5 lg:px-10">
+       <FilterItems />
+    </div>
   );
 }
