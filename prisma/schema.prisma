@@ -15,5 +15,10 @@ datasource db {
 }
 
 model User {
-  id String @id @default(uuid())
+  id String @id @unique
+
+  email String
+  firstName String
+  lastName String
+  ProfileImage String?
 }
