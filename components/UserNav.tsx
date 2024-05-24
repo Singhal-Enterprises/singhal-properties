@@ -1,8 +1,9 @@
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from './ui/dropdown-menu'
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator } from './ui/dropdown-menu'
 import React from 'react'
 import { MenuIcon } from 'lucide-react'
 import {RegisterLink, LoginLink, LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
+import Link from 'next/link'
 
 const UserNav = async () => {
     const {getUser} = getKindeServerSession();
@@ -26,14 +27,21 @@ const UserNav = async () => {
           {user ? (
             <>
             <DropdownMenuItem>
-            Bookmarks
+            <Link href='/' className='w-full'>
+                Bookmarks
+                </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-            My Listings
+                <Link href='/' className='w-full'>
+                My Listings
+                </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-            About Us
+            <Link href='/' className='w-full'>
+                About Us
+            </Link>
             </DropdownMenuItem>
+            <DropdownMenuSeparator />
             <DropdownMenuItem>
             <LogoutLink className='w-full'>Log Out</LogoutLink>
             </DropdownMenuItem>
