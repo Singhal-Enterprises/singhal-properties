@@ -25,9 +25,9 @@ model User {
 }
 
 model Home {
-  id String @id @unique
+  id String @id @default(uuid())
 
-  title String
+  title String?
   location String?
   description String?
   price Float?
@@ -39,7 +39,6 @@ model Home {
   createdAt DateTime @default(now())
   User User? @relation(fields: [userId], references: [id])
   userId String? 
-
   owner Owner?
   totalFloors Int?
   propertyOnFloor Int?
