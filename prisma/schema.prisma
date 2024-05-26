@@ -36,6 +36,11 @@ model Home {
   barea Float?
   carea Float?
   photo String?
+
+  addedCategory Boolean @default(false)
+  addedLocation Boolean @default(false)
+  addedDescription Boolean @default(false)
+
   createdAt DateTime @default(now())
   User User? @relation(fields: [userId], references: [id])
   userId String? 
