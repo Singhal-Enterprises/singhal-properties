@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus, faAddressBook } from "@fortawesome/free-solid-svg-icons";
 import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
 import { listProperty } from "@/app/actions";
+import {ModeToggle} from "./ui/modetoggle";
 
 export default async function Navbar() {
   const {getUser} = getKindeServerSession();
@@ -30,8 +31,11 @@ export default async function Navbar() {
           />
         </Link>
         <div className="flex items-center">
+          <div className="mr-2">
+          <ModeToggle />
+          </div>
           <form action={listPropertywithId}>
-          <Button className="mr-2 bg-purple-300 px-4 flex items-center" variant="outline" type="submit">
+          <Button className="mr-2 bg-purple-300 dark:bg-gradient-to-l from-fuchsia-400 via-fuchsia-800 to-purple-600 px-4 flex items-center" variant="outline" type="submit">
           <FontAwesomeIcon icon={faCirclePlus} height={30} width={30} />
             List Property
         </Button>

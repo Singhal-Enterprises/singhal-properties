@@ -4,6 +4,9 @@ import { MenuIcon } from 'lucide-react'
 import {RegisterLink, LoginLink, LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBookmark, faHandshake, faAddressCard } from '@fortawesome/free-regular-svg-icons'
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 const UserNav = async () => {
     const {getUser} = getKindeServerSession();
@@ -27,23 +30,37 @@ const UserNav = async () => {
           {user ? (
             <>
             <DropdownMenuItem>
-            <Link href='/' className='w-full'>
-                Bookmarks
+                <div  className='w-full flex space-x-2'>
+                <FontAwesomeIcon icon={faBookmark} className='mt-1' />
+                <Link href='/'>
+                    Bookmarks
                 </Link>
+                </div>
+
             </DropdownMenuItem>
             <DropdownMenuItem>
-                <Link href='/' className='w-full'>
-                My Listings
+            <div  className='w-full flex space-x-2'>
+            <FontAwesomeIcon icon={faHandshake} className='mt-1' />
+                  <Link href='/'>
+                    My Listing
                 </Link>
+                </div>
             </DropdownMenuItem>
             <DropdownMenuItem>
-            <Link href='/' className='w-full'>
-                About Us
-            </Link>
+            <div  className='w-full flex space-x-2'>
+            <FontAwesomeIcon icon={faAddressCard} className='mt-1' />
+                <Link href='/'>
+                    About Us
+                </Link>
+                </div>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-            <LogoutLink className='w-full'>Log Out</LogoutLink>
+            <div  className='w-full flex space-x-2'>
+            <FontAwesomeIcon icon={faRightFromBracket} className='mt-1' />
+            <LogoutLink>Log Out</LogoutLink>
+                </div>
+           
             </DropdownMenuItem>
            
             </>
