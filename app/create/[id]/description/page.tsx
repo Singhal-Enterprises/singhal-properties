@@ -1,9 +1,11 @@
 import React from 'react'
 
-const page = () => {
+function DescriptionPage() {
   return (
-    <div>page</div>
+    <div>
+        <h1>Category added</h1>
+    </div>
   )
 }
 
-export default page
+export default DescriptionPage;

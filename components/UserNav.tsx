@@ -31,7 +31,7 @@ const UserNav = async () => {
             <>
             <DropdownMenuItem>
                 <div  className='w-full flex space-x-2'>
-                <FontAwesomeIcon icon={faBookmark} className='mt-1' />
+                <FontAwesomeIcon icon={faBookmark} className='mt-1 mr-1.5 ml-0.5' />
                 <Link href='/'>
                     Bookmarks
                 </Link>

@@ -36,6 +36,7 @@ model Home {
   barea Float?
   carea Float?
   photo String?
+  categoryName String?
 
   addedCategory Boolean @default(false)
   addedLocation Boolean @default(false)
