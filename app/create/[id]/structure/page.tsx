@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import {SelectedCategory} from "../../../../components/SelectedCategory";
 import Link from 'next/link';
 import { createCategoryPage } from "@/app/actions";
+import { CreationBottomBar } from "@/components/CreationBottomBar";
 
 export default function StructureRoute({params}: {params: {id: string}}) {
     return (
@@ -22,7 +23,8 @@ export default function StructureRoute({params}: {params: {id: string}}) {
               Cancel
               </Link>
               </Button>
-            <Button size="lg">Save</Button>
+
+              <CreationBottomBar />
           </div>
         </div>
       </form>
