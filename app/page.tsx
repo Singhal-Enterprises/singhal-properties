@@ -4,12 +4,19 @@ import FilterItems from "@/components/FilterItems";
 import prisma from "./lib/db";
 import { ListingCard } from "@/components/ListingCard";
 
-async function getListings() {
+async function getListings({
+  searchParams,
+} : {
+  searchParams: {
+    filter?: string
+  }
+}) {
   const data = await prisma.home.findMany({
     where: {
       addedCategory: true,
       addedDescription: true,
       addedLocation: true,
+      categoryName: searchParams?.filter ?? undefined,
     },
     select: {
       id: true,
@@ -25,8 +32,14 @@ async function getListings() {
   return data;
 }
 
-export default async function Home() {
-  const listings = await getListings();
+export default async function Home({
+  searchParams,
+} : {
+  searchParams: {
+    filter?: string
+  }
+}) {
+  const listings = await getListings({ searchParams : searchParams});
   return (
     <div className="container mx-auto px-5 lg:px-10">
        <FilterItems />
