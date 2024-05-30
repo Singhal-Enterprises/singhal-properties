@@ -3,7 +3,6 @@
 import { redirect } from "next/navigation";
 import prisma from "./lib/db"
 import { supabase } from "./lib/supabase";
-import { cache } from "react";
 import { Owner, Status } from "@prisma/client";
 
 
@@ -33,8 +32,20 @@ export async function listProperty({ userId }: { userId: string }) {
     else if(data.addedCategory && !data.addedDescription){
         return redirect(`/create/${data.id}/description`);
     }
-}
-
+    else if (
+        data.addedCategory &&
+        data.addedDescription &&
+        data.addedLocation
+      ) {
+        const data = await prisma.home.create({
+          data: {
+            userId: userId,
+          },
+        });
+    
+        return redirect(`/create/${data.id}/structure`);
+      }
+    }
 
 export async function createCategoryPage(formData: FormData) {
     const categoryName = formData.get("categoryName") as string;    
@@ -99,8 +110,9 @@ export async function createCategoryPage(formData: FormData) {
         barea: Number(barea),
         carea: Number(carea),
         addedDescription: true,
+        addedLocation: true,
       },
     });
   
-    return redirect(`/create/${homeId}/address`);
+    return redirect('/');
   }

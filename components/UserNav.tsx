@@ -17,8 +17,9 @@ const UserNav = async () => {
       <div className="rounded-full border px-2 py-2 lg:px-4 lg:py-2 flex items-center gap-x-3">
         <MenuIcon className="w-6 h-6 lg:w-5 lg:h-5" />
 
+        {/* user?.picture ?? */}
         <img
-          src={ user?.picture ??
+          src={ 
             "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
           }
           alt="Profile Image"

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../public/1.png"
+import logo from "../public/saml.svg"
 import UserNav from "./UserNav";
 import {Button} from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,7 +35,7 @@ export default async function Navbar() {
           <ModeToggle />
           </div>
           <form action={listPropertywithId}>
-          <Button className="mr-2 bg-purple-300 dark:bg-gradient-to-l from-fuchsia-400 via-fuchsia-800 to-purple-600 px-4 flex items-center" variant="outline" type="submit">
+          <Button className="mr-2 bg-purple-300 dark:bg-purple-600 px-4 flex items-center" variant="outline" type="submit">
           <FontAwesomeIcon icon={faCirclePlus} height={30} width={30} />
             List Property
         </Button>
