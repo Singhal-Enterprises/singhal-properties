@@ -1,6 +1,11 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBuilding, faBed, faHome, faMap, faHouse } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBed,
+  faBuilding,
+  faHome,
+  faHouse,
+  faMap,
+} from '@fortawesome/free-solid-svg-icons';
 
 interface iAppProps {
   name: string;

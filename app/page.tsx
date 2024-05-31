@@ -3,6 +3,7 @@ import prisma from "./lib/db";
 import { ListingCard } from "@/components/ListingCard";
 import { Suspense } from "react";
 import { SkeltonCard } from "@/components/SkeletonCard";
+import { NoItems } from "@/components/NoItems";
 
 async function getListings({
   searchParams,
@@ -60,7 +61,11 @@ async function ShowItems({
 }) {
 const listings = await getListings({ searchParams : searchParams});
 return (
-     <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8 mb-36">
+     <>
+     {listings.length === 0 ? (
+      <NoItems />
+     ) : (
+      <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8 mb-36">
       {listings.map((listing) => (
         <ListingCard
           key={listing.id}
@@ -74,6 +79,8 @@ return (
           />
       ))}
      </div>
+     )}
+     </>
 );
 }
 
