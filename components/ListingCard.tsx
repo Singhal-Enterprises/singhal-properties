@@ -22,6 +22,7 @@ interface ListingCardProps {
 
 export function ListingCard(props: ListingCardProps) {
     return (
+        <Link href={`/home/${props.homeId}`}>
         <div className="flex flex-col cursor-pointer hover:bg-slate-100 rounded-sm dark:hover:bg-slate-900 p-2">
             <div className="relative h-48 sm:h-72">
                 <Image
@@ -57,7 +58,7 @@ export function ListingCard(props: ListingCardProps) {
                 <Badge className="bg-purple-200 dark:bg-purple-600 rounded-full px-3 mt-2 font-semibold dark:text-white text-black-100">{props.location}</Badge>
                 <Badge className="bg-teal-300 dark:bg-teal-700 rounded-full px-3 mt-2 font-semibold dark:text-white text-black-100">{props.barea} sq. ft</Badge>
             </div>
-            <Link href='/'>
+          
                 <h3 className="font-medium text-base sm:text-lg">
                     {props.title}
                 </h3>
@@ -68,7 +69,7 @@ export function ListingCard(props: ListingCardProps) {
                     <span className="font-bold dark:text-green-400 text-green-600">Rs {props.price} </span>
                     /month
                 </p>
-            </Link>
         </div>
+        </Link>
     );
 }
