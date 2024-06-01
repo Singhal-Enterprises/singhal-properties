@@ -74,7 +74,10 @@ const listings = await getListings({ searchParams : searchParams, userId: user?.
 return (
      <>
      {listings.length === 0 ? (
-      <NoItems />
+      <NoItems 
+      heading = "Sorry No Listing Found for this category"
+      message = "Please check another category or create a new listing!"
+      />
      ) : (
       <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8 mb-36">
       {listings.map((listing) => (
