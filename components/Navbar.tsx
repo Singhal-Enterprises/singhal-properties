@@ -43,7 +43,7 @@ export default async function Navbar() {
         
         <Button className="mr-2">
         <FontAwesomeIcon icon={faAddressBook} height={30} width={30} />
-          <Link href="/create">
+          <Link href="/contact">
             Contact
           </Link>
         </Button>

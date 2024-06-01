@@ -42,15 +42,15 @@ const UserNav = async () => {
             <DropdownMenuItem>
             <div  className='w-full flex space-x-2'>
             <FontAwesomeIcon icon={faHandshake} className='mt-1' />
-                  <Link href='/'>
-                    My Listing
+                  <Link href='/listing'>
+                    My Listings
                 </Link>
                 </div>
             </DropdownMenuItem>
             <DropdownMenuItem>
             <div  className='w-full flex space-x-2'>
             <FontAwesomeIcon icon={faAddressCard} className='mt-1' />
-                <Link href='/'>
+                <Link href='/about'>
                     About Us
                 </Link>
                 </div>
