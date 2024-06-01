@@ -4,6 +4,7 @@ import { AddToBookmarkButton } from "./SubmitButton";
 import { Badge } from "@/components/ui/badge"
 import { addToBookmark, deleteBookmark } from "@/app/actions";
 import { DeleteBookmarkButton } from "./SubmitButton";
+import { Layers3, MapPin, LandPlot } from "lucide-react";
 
 interface ListingCardProps {
     title: string;
@@ -54,9 +55,36 @@ export function ListingCard(props: ListingCardProps) {
 
             </div>
             <div className="mb-4 flex flex-wrap text-xs sm:text-sm gap-x-2 gap-y-2 mt-1 lg:justify-center sm:justify-start">
-                <Badge className="bg-blue-200 dark:bg-blue-700 rounded-full px-3 mt-2 font-semibold dark:text-white text-black-100">{props.category}</Badge>
-                <Badge className="bg-purple-200 dark:bg-purple-600 rounded-full px-3 mt-2 font-semibold dark:text-white text-black-100">{props.location}</Badge>
-                <Badge className="bg-teal-300 dark:bg-teal-700 rounded-full px-3 mt-2 font-semibold dark:text-white text-black-100">{props.barea} sq. ft</Badge>
+            <div className="mt-6 flex items-center gap-4 text-xs">
+      <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+      <Layers3 color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth />
+        <div className="mt-1.5 sm:mt-0">
+          <p className="text-gray-500">Category</p>
+
+          <p className="font-medium">{props.category}</p>
+        </div>
+      </div>
+
+      <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+      <MapPin color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth />
+        <div className="mt-1.5 sm:mt-0">
+          <p className="text-gray-500">Location</p>
+
+          <p className="font-medium">{props.location}</p>
+        </div>
+      </div>
+
+      <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+      <LandPlot color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth />
+
+        <div className="mt-1.5 sm:mt-0">
+          <p className="text-gray-500">Area</p>
+
+          <p className="font-medium">{props.barea} sq.ft</p>
+        </div>
+      </div>
+    </div>  
+
             </div>
           
                 <h3 className="font-medium text-base sm:text-lg">

@@ -5,6 +5,9 @@ import { Suspense } from "react";
 import { SkeltonCard } from "@/components/SkeletonCard";
 import { NoItems } from "@/components/NoItems";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import Footer from "@/components/footer";
+import Hero from "@/components/Hero";
+import { Separator } from "@/components/ui/separator"
 
 async function getListings({
   searchParams,
@@ -51,6 +54,7 @@ export default async function Home({
 }) {
   return (
     <div className="container mx-auto px-5 lg:px-10">
+      <Hero />
        <FilterItems />
       
       <Suspense fallback={<SkeletonLoading />}>
@@ -79,7 +83,7 @@ return (
       message = "Please check another category or create a new listing!"
       />
      ) : (
-      <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8 mb-36">
+      <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8 mb-8">
       {listings.map((listing) => (
         <ListingCard
           key={listing.id}
@@ -99,6 +103,8 @@ return (
       ))}
      </div>
      )}
+     <Separator className="mb-10" />
+     <Footer />
      </>
 );
 }
