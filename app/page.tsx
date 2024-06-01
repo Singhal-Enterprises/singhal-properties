@@ -4,12 +4,16 @@ import { ListingCard } from "@/components/ListingCard";
 import { Suspense } from "react";
 import { SkeltonCard } from "@/components/SkeletonCard";
 import { NoItems } from "@/components/NoItems";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 async function getListings({
   searchParams,
+  userId
 } : {
+  userId: string | undefined;
   searchParams: {
     filter?: string
+
   }
 }) {
   const data = await prisma.home.findMany({
@@ -28,6 +32,11 @@ async function getListings({
       price: true,
       photo: true,
       barea: true,
+      Bookmark: {
+        where: {
+          userId: userId ?? undefined,
+        },
+      },
     },
   });
   return data;
@@ -59,7 +68,9 @@ async function ShowItems({
     filter?: string
   }
 }) {
-const listings = await getListings({ searchParams : searchParams});
+  const{getUser} = getKindeServerSession();
+  const user = await getUser();
+const listings = await getListings({ searchParams : searchParams, userId: user?.id});
 return (
      <>
      {listings.length === 0 ? (
@@ -69,6 +80,7 @@ return (
       {listings.map((listing) => (
         <ListingCard
           key={listing.id}
+          userId={user?.id}
           title={listing.title as string}
           category={listing.categoryName as string}
           description={listing.description as string}
@@ -76,6 +88,10 @@ return (
           price={listing.price as number}
           imagePath={listing.photo as string}
           barea={listing.barea as number}
+          BookmarkId={listing.Bookmark[0]?.id as string}
+          isBookmarked={listing.Bookmark.length > 0 ? true : false} 
+          homeId={listing.id}
+          pathName="/"
           />
       ))}
      </div>

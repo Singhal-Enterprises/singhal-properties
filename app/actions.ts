@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import prisma from "./lib/db"
 import { supabase } from "./lib/supabase";
 import { Owner, Status } from "@prisma/client";
+import { revalidatePath } from "next/cache";
 
 
 export async function listProperty({ userId }: { userId: string }) {
@@ -115,4 +116,33 @@ export async function createCategoryPage(formData: FormData) {
     });
   
     return redirect('/');
+  }
+
+  export async function addToBookmark(formData : FormData){
+    const homeId = formData.get("homeId") as string;
+    const userId = formData.get("userId") as string;
+    const pathName = formData.get("pathName") as string;
+  
+    const data = await prisma.bookmark.create({
+      data: {
+        homeId: homeId,
+        userId: userId,
+      },
+    });
+    revalidatePath(pathName);
+  }
+
+  export async function deleteBookmark(formData : FormData){
+    const BookmarkId = formData.get("BookmarkId") as string;
+    const userId = formData.get("userId") as string;
+    const pathName = formData.get("pathName") as string;
+
+    const data = await prisma.bookmark.delete({
+        where: {
+            id: BookmarkId,
+            userId: userId,
+        },
+    });
+
+    revalidatePath(pathName);
   }
