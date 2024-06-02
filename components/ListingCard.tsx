@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AddToBookmarkButton } from "./SubmitButton";
-import { Badge } from "@/components/ui/badge"
 import { addToBookmark, deleteBookmark } from "@/app/actions";
 import { DeleteBookmarkButton } from "./SubmitButton";
 import { Layers3, MapPin, LandPlot } from "lucide-react";
+import { Button } from "./ui/button";
 
 interface ListingCardProps {
     title: string;
@@ -23,8 +23,8 @@ interface ListingCardProps {
 
 export function ListingCard(props: ListingCardProps) {
     return (
-        <Link href={`/home/${props.homeId}`}>
-        <div className="flex flex-col cursor-pointer hover:bg-slate-100 rounded-sm dark:hover:bg-slate-900 p-2">
+        <>
+            <div className="flex flex-col cursor-pointer hover:bg-slate-100 rounded-sm dark:hover:bg-slate-900 p-2">
             <div className="relative h-48 sm:h-72">
                 <Image
                     src={`https://ctqlsgdqdxtmapwwtslv.supabase.co/storage/v1/object/public/images/${props.imagePath}`}
@@ -32,7 +32,7 @@ export function ListingCard(props: ListingCardProps) {
                     fill
                     className="h-full rounded-tr-2xl rounded-tl-[80px] rounded-bl-[20px] object-cover mb-3"
                 />
-
+            
             {props.userId && (
           <div className="z-10 absolute top-2 right-2">
             {props.isBookmarked ? (
@@ -86,18 +86,22 @@ export function ListingCard(props: ListingCardProps) {
     </div>  
 
             </div>
-          
                 <h3 className="font-medium text-base sm:text-lg">
                     {props.title}
                 </h3>
                 <p className="text-muted-foreground text-xs sm:text-sm line-clamp-2">
                     {props.description}
                 </p>
-                <p className="pt-2 text-muted-foreground text-xs sm:text-sm">
-                    <span className="font-bold dark:text-green-400 text-green-600">Rs {props.price} </span>
-                    /month
+                <p className="pt-2 text-muted-foreground text-xs sm:text-sm flex justify-between items-center mt-1">
+                    <span className="font-bold dark:text-green-400 text-green-600">Rs {props.price}</span>
+                <Link href={`/home/${props.homeId}`}>
+                <Button className="w-15 h-7">View</Button>
+                </Link>
                 </p>
+
+
         </div>
-        </Link>
+        </>
+        
     );
 }

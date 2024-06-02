@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className="bg-white lg:grid lg:grid-cols-5 dark:bg-black mb-4">
+    <footer className="bg-transparent lg:grid lg:grid-cols-5 mb-4">
   <div className="relative block h-32 lg:col-span-2 lg:h-full">
     <img
       src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2873&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
