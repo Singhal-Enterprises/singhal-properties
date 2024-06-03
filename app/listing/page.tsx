@@ -19,7 +19,6 @@ async function getHomes(userId: string) {
       categoryName: true,
       description: true,
       location: true,
-      price: true,
       photo: true,
       barea: true,
       Bookmark: {
@@ -55,7 +54,6 @@ async function HomesPage() {
             category={item.categoryName as string}
             imagePath={item.photo as string}
             homeId={item.id}
-            price={item.price as number}
             description={item.description as string}
             location={item.location as string}
             userId={user.id}

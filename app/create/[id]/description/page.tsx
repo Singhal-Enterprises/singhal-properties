@@ -53,17 +53,6 @@ function DescriptionPage( { params } : { params: { id: string } }) {
           </div>
 
           <div className="flex flex-col gap-y-2">
-            <Label>Price</Label>
-            <Input
-              name="price"
-              type="number"
-              required
-              placeholder="Price in INR"
-              min={10}
-            />
-          </div>
-
-          <div className="flex flex-col gap-y-2">
             <Label>Image</Label>
             <Input name="image" type="file" required />
           </div>

@@ -12,7 +12,6 @@ async function getData(homeId:string) {
         categoryName: true,
         description: true,
         location: true,
-        price: true,
         photo: true,
         barea: true,
         carea: true,
@@ -53,7 +52,7 @@ export default async function HomeRoute(
       <div className="flex justify-between gap-x-24 mt-8">
         <div className="w-2/3">
           <h3 className="text-xl font-medium">
-            {data?.location} {data?.price} / {data?.categoryName}
+            {data?.location} / {data?.categoryName}
           </h3>
           <div className="flex gap-x-2 text-muted-foreground">
             <p>{data?.totalFloors} Floors</p> * <p>{data?.beds} Bedrooms</p> *{" "}

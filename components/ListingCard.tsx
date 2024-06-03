@@ -11,7 +11,6 @@ interface ListingCardProps {
     description: string;
     category: string;
     location: string;
-    price: number;
     imagePath: string;
     barea: number;
     userId: string | undefined;
@@ -95,7 +94,6 @@ export function ListingCard(props: ListingCardProps) {
                     {props.description}
                 </p>
                 <p className="pt-2 text-muted-foreground text-xs sm:text-sm flex justify-between items-center mt-1">
-                    <span className="font-bold dark:text-green-400 text-green-600">Rs {props.price}</span>
                     <Link href={`/home/${props.homeId}`}>
                         <Button className="w-15 h-7">View</Button>
                     </Link>

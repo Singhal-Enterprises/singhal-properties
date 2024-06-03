@@ -31,7 +31,6 @@ model Home {
   title String?
   location String?
   description String?
-  price Float?
   beds Int?
   baths Int?
   barea Float?

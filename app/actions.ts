@@ -69,7 +69,6 @@ export async function createCategoryPage(formData: FormData) {
     const title = formData.get("title") as string;
     const location = formData.get("location") as string;
     const description = formData.get("description") as string;
-    const price = formData.get("price");
     const imageFile = formData.get("image") as File;
     const floorPlan = formData.get("Floor") as string;
     const floorNo = formData.get("PFloor") as string;
@@ -100,7 +99,6 @@ export async function createCategoryPage(formData: FormData) {
         title: title,
         description: description,
         location: location,
-        price: Number(price),
         photo: imageData?.path,
         totalFloors: Number(floorPlan),
         propertyOnFloor: Number(floorNo),

@@ -32,7 +32,6 @@ async function getListings({
       categoryName: true,
       description: true,
       location: true,
-      price: true,
       photo: true,
       barea: true,
       Bookmark: {
@@ -92,7 +91,6 @@ return (
           category={listing.categoryName as string}
           description={listing.description as string}
           location={listing.location as string}
-          price={listing.price as number}
           imagePath={listing.photo as string}
           barea={listing.barea as number}
           BookmarkId={listing.Bookmark[0]?.id as string}
@@ -112,7 +110,6 @@ return (
 function SkeletonLoading() {
   return (
     <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
-      <SkeltonCard />
       <SkeltonCard />
       <SkeltonCard />
       <SkeltonCard />
