@@ -9,10 +9,12 @@ import { Counter } from '@/components/Conter';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { CreationBottomBar } from '@/components/CreationBottomBar';
 import { createDescriptionPage } from '../../../actions';
+import { UploadDropzone } from '../../../lib/uploadthing';
 
 function DescriptionPage( { params } : { params: { id: string } }) {
   const [owner, setOwner] = useState("");
   const [status, setStatus] = useState("");
+  const [images, setImages] = useState<null | string[]>(null);
 
   return (
     <>
@@ -39,7 +41,6 @@ function DescriptionPage( { params } : { params: { id: string } }) {
             <Input
               name="location"
               type="text"
-              required
               placeholder="Location of your property..."
             />
           </div>
@@ -47,15 +48,28 @@ function DescriptionPage( { params } : { params: { id: string } }) {
             <Label>Description</Label>
             <Textarea
               name="description"
-              required
               placeholder="Please describe your home..."
             />
           </div>
 
           <div className="flex flex-col gap-y-2">
-            <Label>Image</Label>
+            <Label>Thumbnail Image</Label>
             <Input name="image" type="file" required />
           </div>
+
+          <div className="flex flex-col gap-y-2">
+            <input type="hidden" name="images" value={JSON.stringify(images)} />
+            <Label>Upload Images</Label>
+            <UploadDropzone endpoint='imageUploader'
+             onClientUploadComplete={(res) => {
+              setImages(res.map((item) => item.url));
+             }}
+             onUploadError={(error: Error) => {
+              alert(`ERROR! ${error.message}`);
+             }}
+            />
+          </div>
+          
           <Card>
             <CardHeader className="flex flex-col gap-y-5">
               <div className="flex flex-col gap-y-5 sm:flex-row sm:items-center sm:justify-between">

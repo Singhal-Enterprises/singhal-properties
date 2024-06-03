@@ -73,6 +73,7 @@ export async function createCategoryPage(formData: FormData) {
     const location = formData.get("location") as string;
     const description = formData.get("description") as string;
     const imageFile = formData.get("image") as File;
+    const images = JSON.parse(formData.get("images") as string);
     const floorPlan = formData.get("Floor") as string;
     const floorNo = formData.get("PFloor") as string;
     const beds = formData.get("beds") as string;
@@ -108,6 +109,7 @@ export async function createCategoryPage(formData: FormData) {
         beds: Number(beds),
         baths: Number(baths),
         owner: ownerEnum,
+        images: images,
         status: statusEnum,
         barea: Number(barea),
         carea: Number(carea),

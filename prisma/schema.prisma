@@ -36,6 +36,7 @@ model Home {
   barea Float?
   carea Float?
   photo String?
+  images String[]
   categoryName String?
   Bookmark Bookmark[]
 
