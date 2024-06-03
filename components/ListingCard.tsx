@@ -22,6 +22,15 @@ interface ListingCardProps {
 }
 
 export function ListingCard(props: ListingCardProps) {
+    const truncateLocation = (location: string, charLimit: number) => {
+        if (location.length <= charLimit) {
+            return location;
+        }
+        return location.slice(0, charLimit) + "...";
+    };
+
+    const truncatedLocation = truncateLocation(props.location, 8);
+
     return (
         <>
             <div className="flex flex-col cursor-pointer hover:bg-slate-100 rounded-sm dark:hover:bg-slate-900 p-2">
@@ -54,38 +63,31 @@ export function ListingCard(props: ListingCardProps) {
             )}
 
             </div>
-            <div className="mb-4 flex flex-wrap text-xs sm:text-sm gap-x-2 gap-y-2 mt-1 lg:justify-center sm:justify-start">
-            <div className="mt-6 flex items-center gap-4 text-xs">
-      <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-      <Layers3 color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth />
-        <div className="mt-1.5 sm:mt-0">
-          <p className="text-gray-500">Category</p>
-
-          <p className="font-medium">{props.category}</p>
-        </div>
-      </div>
-
-      <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-      <MapPin color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth />
-        <div className="mt-1.5 sm:mt-0">
-          <p className="text-gray-500">Location</p>
-
-          <p className="font-medium">{props.location}</p>
-        </div>
-      </div>
-
-      <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-      <LandPlot color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth />
-
-        <div className="mt-1.5 sm:mt-0">
-          <p className="text-gray-500">Area</p>
-
-          <p className="font-medium">{props.barea} sq.ft</p>
-        </div>
-      </div>
-    </div>  
-
-            </div>
+            <div className="mb-4 flex flex-wrap gap-4 mt-1">
+                    <div className="flex items-center gap-4 text-xs sm:text-sm">
+                        <div className="flex items-center gap-2">
+                            <Layers3 color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth />
+                            <div>
+                                <p className="text-gray-500">Category</p>
+                                <p className="font-medium">{props.category}</p>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <MapPin color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth />
+                            <div>
+                                <p className="text-gray-500">Location</p>
+                                <p className="font-medium">{truncatedLocation}</p>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <LandPlot color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth />
+                            <div>
+                                <p className="text-gray-500">Area</p>
+                                <p className="font-medium">{props.barea > 0 ? `${props.barea} sq.ft` : '---'}</p>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
                 <h3 className="font-medium text-base sm:text-lg">
                     {props.title}
                 </h3>
@@ -94,13 +96,11 @@ export function ListingCard(props: ListingCardProps) {
                 </p>
                 <p className="pt-2 text-muted-foreground text-xs sm:text-sm flex justify-between items-center mt-1">
                     <span className="font-bold dark:text-green-400 text-green-600">Rs {props.price}</span>
-                <Link href={`/home/${props.homeId}`}>
-                <Button className="w-15 h-7">View</Button>
-                </Link>
+                    <Link href={`/home/${props.homeId}`}>
+                        <Button className="w-15 h-7">View</Button>
+                    </Link>
                 </p>
-
-
-        </div>
+            </div>
         </>
         
     );
