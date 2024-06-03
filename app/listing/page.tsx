@@ -12,6 +12,7 @@ async function getHomes(userId: string) {
      addedCategory: true,
      addedDescription: true,
      addedLocation: true,
+     approval: true,
     },
     select: {
       id: true,

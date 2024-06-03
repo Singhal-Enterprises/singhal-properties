@@ -42,6 +42,7 @@ model Home {
   addedCategory Boolean @default(false)
   addedLocation Boolean @default(false)
   addedDescription Boolean @default(false)
+  approval Boolean @default(false)
 
   createdAt DateTime @default(now())
   User User? @relation(fields: [userId], references: [id])

@@ -25,6 +25,7 @@ async function getListings({
       addedDescription: true,
       addedLocation: true,
       categoryName: searchParams?.filter ?? undefined,
+      approval: true,
     },
     select: {
       id: true,

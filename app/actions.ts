@@ -11,6 +11,7 @@ export async function listProperty({ userId }: { userId: string }) {
     const data = await prisma.home.findFirst({
       where: {
         userId: userId,
+        approval: true,
       },
       orderBy: {
         createdAt: "desc",
@@ -21,6 +22,7 @@ export async function listProperty({ userId }: { userId: string }) {
       const data = await prisma.home.create({
         data: {
           userId: userId,
+          approval: false,
         },
       });
   
@@ -41,6 +43,7 @@ export async function listProperty({ userId }: { userId: string }) {
         const data = await prisma.home.create({
           data: {
             userId: userId,
+            approval: false,
           },
         });
     
@@ -110,6 +113,7 @@ export async function createCategoryPage(formData: FormData) {
         carea: Number(carea),
         addedDescription: true,
         addedLocation: true,
+        approval: false,
       },
     });
   
