@@ -4,10 +4,11 @@ import logo from "../public/saml.svg"
 import UserNav from "./UserNav";
 import {Button} from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus, faAddressBook } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
 import { listProperty } from "@/app/actions";
 import {ModeToggle} from "./ui/modetoggle";
+import { PhoneCall } from "lucide-react";
 
 export default async function Navbar() {
   const {getUser} = getKindeServerSession();
@@ -42,9 +43,9 @@ export default async function Navbar() {
           </form>
         
         <Button className="mr-2">
-        <FontAwesomeIcon icon={faAddressBook} height={30} width={30} />
+        <PhoneCall className="w-4 h-4 mr-1" />
           <Link href="/contact">
-            Contact
+            Enquiry
           </Link>
         </Button>
         <UserNav />

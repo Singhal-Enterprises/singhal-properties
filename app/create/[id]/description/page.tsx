@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { CreationBottomBar } from '@/components/CreationBottomBar';
 import { createDescriptionPage } from '../../../actions';
 import { UploadDropzone } from '../../../lib/uploadthing';
+import { toast } from 'sonner';
 
 function DescriptionPage( { params } : { params: { id: string } }) {
   const [owner, setOwner] = useState("");
@@ -54,7 +55,7 @@ function DescriptionPage( { params } : { params: { id: string } }) {
 
           <div className="flex flex-col gap-y-2">
             <Label>Thumbnail Image</Label>
-            <Input name="image" type="file" required />
+            <Input name="image" type="file" required/>
           </div>
 
           <div className="flex flex-col gap-y-2">
@@ -63,9 +64,10 @@ function DescriptionPage( { params } : { params: { id: string } }) {
             <UploadDropzone endpoint='imageUploader'
              onClientUploadComplete={(res) => {
               setImages(res.map((item) => item.url));
+              toast.success('Images uploaded successfully');
              }}
              onUploadError={(error: Error) => {
-              alert(`ERROR! ${error.message}`);
+              toast.error('Error uploading images');
              }}
             />
           </div>

@@ -5,6 +5,7 @@ import { addToBookmark, deleteBookmark } from "@/app/actions";
 import { DeleteBookmarkButton } from "./SubmitButton";
 import { Layers3, MapPin, LandPlot } from "lucide-react";
 import { Button } from "./ui/button";
+import logo from "../public/logo.png";
 
 interface ListingCardProps {
     title: string;
@@ -35,7 +36,7 @@ export function ListingCard(props: ListingCardProps) {
             <div className="flex flex-col cursor-pointer hover:bg-slate-100 rounded-sm dark:hover:bg-slate-900 p-2">
             <div className="relative h-48 sm:h-72">
                 <Image
-                    src={`https://ctqlsgdqdxtmapwwtslv.supabase.co/storage/v1/object/public/images/${props.imagePath}`}
+                    src={`https://ctqlsgdqdxtmapwwtslv.supabase.co/storage/v1/object/public/images/${props.imagePath}` ?? {logo} } 
                     alt="Image of House"
                     fill
                     className="h-full rounded-tr-2xl rounded-tl-[80px] rounded-bl-[20px] object-cover mb-3"

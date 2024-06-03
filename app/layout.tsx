@@ -6,6 +6,8 @@ import { ThemeProvider } from "./../components/theme-provider";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { extractRouterConfig } from "uploadthing/server";
+import { Toaster } from "@/components/ui/sonner"
+
 
 
 
@@ -35,6 +37,7 @@ export default function RootLayout({
           >
         <Navbar />
         {children}
+        <Toaster richColors theme="dark" closeButton />
         </ThemeProvider>
         </body>
     </html>
