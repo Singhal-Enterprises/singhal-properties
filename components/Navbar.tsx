@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../public/saml.svg"
+import logo from "../public/c.png"
 import UserNav from "./UserNav";
 import {Button} from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,7 +28,7 @@ export default async function Navbar() {
           <Image
             src={logo}
             alt="Mobile Logo"
-            className="block lg:hidden w-12"
+            className="block lg:hidden w-8"
           />
         </Link>
         <div className="flex items-center">
@@ -37,14 +37,14 @@ export default async function Navbar() {
           </div>
           <form action={listPropertywithId}>
           <Button className="mr-2 bg-purple-300 dark:bg-purple-600 px-4 flex items-center" variant="outline" type="submit">
-          <FontAwesomeIcon icon={faCirclePlus} height={30} width={30} />
-            List Property
+          <FontAwesomeIcon icon={faCirclePlus} height={30} width={30} className="block" />
+          <span className="hidden lg:block">List Property</span>
         </Button>
           </form>
         
         <Button className="mr-2">
-        <PhoneCall className="w-4 h-4 mr-1" />
-          <Link href="/contact">
+        <PhoneCall className="w-4 h-4 mr-1 block " />
+          <Link href="/contact" className="hidden lg:block">
             Enquiry
           </Link>
         </Button>

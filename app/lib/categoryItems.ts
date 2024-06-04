@@ -2,8 +2,8 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faBed,
   faBuilding,
-  faHome,
   faHouse,
+  faHouseFlag,
   faMap,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -35,7 +35,7 @@ export const categoryItems: iAppProps[] = [
     name: "residential",
     description: "This property is residential.",
     title: "Residential",
-    icon: faHome,
+    icon: faHouseFlag,
   },
   {
     id: 3,

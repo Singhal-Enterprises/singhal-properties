@@ -6,6 +6,11 @@ const nextConfig = {
                 hostname: "ctqlsgdqdxtmapwwtslv.supabase.co",
                 protocol: "https",
                 port: "",
+            },
+            {
+                hostname: "utfs.io",
+                protocol: "https",
+                port: "",
             }
         ]
     }

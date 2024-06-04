@@ -3,6 +3,8 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { NoItems } from "@/components/NoItems";
 import { ListingCard } from "@/components/ListingCard";
+import Footer from "@/components/footer";
+import { Separator } from "@/components/ui/separator";
 
 
 async function getHomes(userId: string) {
@@ -66,6 +68,8 @@ async function HomesPage() {
             ))}
           </div>
         )}
+        <Separator className="mb-10" />
+     <Footer />
       </section>
     );
   }

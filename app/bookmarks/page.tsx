@@ -3,6 +3,8 @@ import prisma from "../lib/db"
 import { redirect } from "next/navigation";
 import { ListingCard } from "@/components/ListingCard";
 import { NoItems } from "@/components/NoItems";
+import Footer from "@/components/footer";
+import { Separator } from "@/components/ui/separator";
 
 async function getBookmarkList(userId: string) {
     const data = await prisma.bookmark.findMany({
@@ -66,6 +68,8 @@ async function BookmarkRoute() {
             ))}
             </div>
             )}
+      <Separator className="mb-10" />
+     <Footer />
       </section>
 
   )

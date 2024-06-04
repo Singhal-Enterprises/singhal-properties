@@ -55,7 +55,7 @@ function DescriptionPage( { params } : { params: { id: string } }) {
 
           <div className="flex flex-col gap-y-2">
             <Label>Thumbnail Image</Label>
-            <Input name="image" type="file" required/>
+            <Input name="image" type="file" />
           </div>
 
           <div className="flex flex-col gap-y-2">

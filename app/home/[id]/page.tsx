@@ -1,6 +1,10 @@
 import prisma from "@/app/lib/db"
 import Image from "next/image";
 import { BedDouble, MapPin, Bath, LandPlot, Building2, Landmark,ShieldQuestion } from "lucide-react";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext,CarouselPrevious} from "@/components/ui/carousel";
+import Footer from "@/components/footer";
+import { Separator } from "@/components/ui/separator";
+
 
 async function getData(homeId:string) {
     const data = await prisma.home.findUnique({
@@ -16,6 +20,7 @@ async function getData(homeId:string) {
         photo: true,
         barea: true,
         carea: true,
+        images: true,
         beds: true,
         baths: true,
         owner: true,
@@ -39,18 +44,33 @@ export default async function HomeRoute(
 ) {
     const data = await getData(params.id);
   return (
-    <div className="w-[75%] mx-auto mt-10 mb-12">
-      <h1 className="font-medium text-2xl mb-5">{data?.title}</h1>
-      <div className="relative h-64 sm:h-80 md:h-[550px] w-full">
-        <Image
-          alt="Image of Home"
-          src={`https://ctqlsgdqdxtmapwwtslv.supabase.co/storage/v1/object/public/images/${data?.photo}`}
-          fill
-          className="rounded-lg h-full object-cover"
-        />
-      </div>
-
-      <div className="flex justify-between gap-x-24 mt-8">
+    <div className="w-full mx-auto mt-5 mb-12 p-10">
+    <span className="text-2xl md:text-3xl font-bold ml-4 md:ml-11">
+      Property Images
+    </span>
+    <div className="rounded-lg mt-4">
+      <Carousel className="w-full mx-auto">
+        <CarouselContent>
+          {data?.images.map((item, index) => (
+            <CarouselItem key={index}>
+              <div className="relative h-[300px] sm:h-[450px] md:h-[550px] lg:h-[650px]">
+                <Image
+                  alt="Product image"
+                  src={item}
+                  fill
+                  className="object-contain w-full h-full rounded-lg"
+                />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="ml-4 md:ml-16" />
+        <CarouselNext className="mr-4 md:mr-16" />
+      </Carousel>
+    </div>
+  
+   
+      <div className="flex justify-between gap-x-24 mt-8 ml-5">
         <div className="w-2/3">
           <h3 className="text-xl font-medium flex gap-2">
           <MapPin color="#8455dd" />
@@ -180,6 +200,9 @@ export default async function HomeRoute(
 </article>
 
     </div>
+    <Separator className="mb-10" />
+     <Footer />
     </div>
+    
     );
 }

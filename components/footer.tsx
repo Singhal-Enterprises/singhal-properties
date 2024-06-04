@@ -5,7 +5,7 @@ function Footer() {
     <footer className="bg-transparent lg:grid lg:grid-cols-5 mb-4">
   <div className="relative block h-32 lg:col-span-2 lg:h-full">
     <img
-      src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2873&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      src="/c.png"
       alt=""
       className="absolute inset-0 h-full w-full object-cover"
     />
@@ -20,16 +20,16 @@ function Footer() {
           </span>
 
           <a
-            href="#"
-            className="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl dark:text-white"
+            href="tel:+919413353633"
+            className="block text-2xl font-medium hover:opacity-75 sm:text-3xl hover:text-green-500"
           >
             9413353633 
           </a>
         </p>
 
         <ul className="mt-8 space-y-1 text-sm text-gray-700 dark:text-gray-200">
-          <li>Email : singhalpropertyofficial@gmail.com</li>
-          <li>Address : 36-c , Shrinath Puram sector-c , kota , Rajasthan
+        <p className='font-medium hover:text-green-500'><a href="mailto:singhalpropertyofficial@gmail.com">Email : singhalpropertyofficial@gmail.com</a></p>
+          <li>Address : 36-c, Shrinath Puram sector-c, Kota, Rajasthan
 </li>
         </ul>
 
