@@ -6,7 +6,7 @@ import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark, faHandshake, faAddressCard } from '@fortawesome/free-regular-svg-icons'
-import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 const UserNav = async () => {
     const {getUser} = getKindeServerSession();
@@ -30,6 +30,16 @@ const UserNav = async () => {
     <DropdownMenuContent align="end" className="w-[200px]">
           {user ? (
             <>
+
+            <DropdownMenuItem>
+                <div  className='w-full flex space-x-2'>
+                <FontAwesomeIcon icon={faHome} className='mt-1 mr-1.5 ml-0.5' />
+                <Link href='/'>
+                    Home
+                </Link>
+                </div>
+            </DropdownMenuItem>
+
             <DropdownMenuItem>
                 <div  className='w-full flex space-x-2'>
                 <FontAwesomeIcon icon={faBookmark} className='mt-1 mr-1.5 ml-0.5' />
@@ -37,8 +47,8 @@ const UserNav = async () => {
                     Bookmarks
                 </Link>
                 </div>
-
             </DropdownMenuItem>
+
             <DropdownMenuItem>
             <div  className='w-full flex space-x-2'>
             <FontAwesomeIcon icon={faHandshake} className='mt-1' />
@@ -47,7 +57,9 @@ const UserNav = async () => {
                 </Link>
                 </div>
             </DropdownMenuItem>
+
             <DropdownMenuItem>
+          
             <div  className='w-full flex space-x-2'>
             <FontAwesomeIcon icon={faAddressCard} className='mt-1' />
                 <Link href='/about'>
@@ -55,6 +67,7 @@ const UserNav = async () => {
                 </Link>
                 </div>
             </DropdownMenuItem>
+
             <DropdownMenuSeparator />
             <DropdownMenuItem>
             <div  className='w-full flex space-x-2'>

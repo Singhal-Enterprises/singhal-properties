@@ -28,7 +28,7 @@ export function ListingCard(props: ListingCardProps) {
         return location.slice(0, charLimit) + "...";
     };
 
-    const truncatedLocation = truncateLocation(props.location, 8);
+    const truncatedLocation = props.location ? truncateLocation(props.location, 8) : '--NA--';
 
     return (
         <>

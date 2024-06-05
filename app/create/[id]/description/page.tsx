@@ -144,7 +144,7 @@ function DescriptionPage( { params } : { params: { id: string } }) {
               </div>
               <div className="flex flex-col gap-y-5 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex flex-col">
-                  <h3 className="underline font-medium">Built Area</h3>
+                  <h3 className="underline font-medium">Built up Area</h3>
                   <p className="text-muted-foreground text-sm">
                     Enter the built area in sq. ft.
                   </p>
