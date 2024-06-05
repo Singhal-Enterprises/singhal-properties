@@ -17,7 +17,6 @@ async function getData(homeId:string) {
         categoryName: true,
         description: true,
         location: true,
-        photo: true,
         barea: true,
         carea: true,
         images: true,

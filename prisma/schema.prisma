@@ -35,7 +35,6 @@ model Home {
   baths Int?
   barea Float?
   carea Float?
-  photo String?
   images String[]
   categoryName String?
   Bookmark Bookmark[]

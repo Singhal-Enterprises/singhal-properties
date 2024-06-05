@@ -11,7 +11,6 @@ interface ListingCardProps {
     description: string;
     category: string;
     location: string;
-    imagePath: string;
     images: string[];
     barea: number;
     userId: string | undefined;

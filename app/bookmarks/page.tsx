@@ -14,7 +14,6 @@ async function getBookmarkList(userId: string) {
         select: {
             Home: {
                 select: {
-                    photo: true,
                     id: true,
                     Bookmark: true,
                     location: true,
@@ -58,7 +57,6 @@ async function BookmarkRoute() {
                 location={item.Home?.location as string}
                 pathName="/bookmarks"
                 homeId={item.Home?.id as string}
-                imagePath={item.Home?.photo as string}
                 images={item.Home?.images as string[]}
                 userId={user.id}
                 BookmarkId={item.Home?.Bookmark[0].id as string}

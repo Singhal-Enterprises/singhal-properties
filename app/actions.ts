@@ -72,7 +72,6 @@ export async function createCategoryPage(formData: FormData) {
     const title = formData.get("title") as string;
     const location = formData.get("location") as string;
     const description = formData.get("description") as string;
-    const imageFile = formData.get("image") as File;
     const images = JSON.parse(formData.get("images") as string);
     const floorPlan = formData.get("Floor") as string;
     const floorNo = formData.get("PFloor") as string;
@@ -85,15 +84,7 @@ export async function createCategoryPage(formData: FormData) {
   
     const ownerEnum = Object.values(Owner).includes(owner as Owner) ? owner as Owner : null;
     const statusEnum = Object.values(Status).includes(status as Status) ? status as Status : null;
-  
-    const { data: imageData } = await supabase.storage.from("images").upload(
-      `${imageFile.name}-${new Date()}`,
-      imageFile,
-      {
-        cacheControl: "2592000",
-        contentType: imageFile.type,
-      }
-    );
+
   
     const data: any = await prisma.home.update({
       where: {
@@ -103,7 +94,6 @@ export async function createCategoryPage(formData: FormData) {
         title: title,
         description: description,
         location: location,
-        photo: imageData?.path,
         totalFloors: Number(floorPlan),
         propertyOnFloor: Number(floorNo),
         beds: Number(beds),
