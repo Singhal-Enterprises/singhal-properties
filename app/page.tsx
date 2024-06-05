@@ -34,6 +34,7 @@ async function getListings({
       description: true,
       location: true,
       photo: true,
+      images: true,
       barea: true,
       Bookmark: {
         where: {
@@ -93,6 +94,7 @@ return (
           description={listing.description as string}
           location={listing.location as string}
           imagePath={listing.photo as string}
+          images={listing.images as string[]}
           barea={listing.barea as number}
           BookmarkId={listing.Bookmark[0]?.id as string}
           isBookmarked={listing.Bookmark.length > 0 ? true : false} 

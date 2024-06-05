@@ -15,7 +15,8 @@ import { toast } from 'sonner';
 function DescriptionPage( { params } : { params: { id: string } }) {
   const [owner, setOwner] = useState("");
   const [status, setStatus] = useState("");
-  const [images, setImages] = useState<null | string[]>(null);
+  const [images, setImages] = useState<string[]>([]);
+
 
   return (
     <>

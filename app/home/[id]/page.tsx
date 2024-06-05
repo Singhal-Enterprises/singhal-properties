@@ -49,24 +49,27 @@ export default async function HomeRoute(
       Property Images
     </span>
     <div className="rounded-lg mt-4">
-      <Carousel className="w-full mx-auto">
-        <CarouselContent>
-          {data?.images.map((item, index) => (
-            <CarouselItem key={index}>
-              <div className="relative h-[300px] sm:h-[450px] md:h-[550px] lg:h-[650px]">
-                <Image
-                  alt="Product image"
-                  src={item}
-                  fill
-                  className="object-contain w-full h-full rounded-lg"
-                />
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="ml-4 md:ml-16" />
-        <CarouselNext className="mr-4 md:mr-16" />
-      </Carousel>
+    <Carousel className="w-full mx-auto">
+          <CarouselContent>
+            {data?.images && data.images.length > 0 ? (
+              data.images.map((item, index) => (
+                <CarouselItem key={index}>
+                  <div className="relative h-[300px] sm:h-[450px] md:h-[550px] lg:h-[650px]">
+                    <Image alt="Property image" src={item} fill className="object-contain w-full h-full rounded-lg" />
+                  </div>
+                </CarouselItem>
+              ))
+            ) : (
+              <CarouselItem>
+                <div className="relative h-[300px] sm:h-[450px] md:h-[550px] lg:h-[650px]">
+                  <Image alt="Default image" src="/c.png" fill className="object-contain w-full h-full rounded-lg" />
+                </div>
+              </CarouselItem>
+            )}
+          </CarouselContent>
+          <CarouselPrevious className="ml-4 md:ml-16" />
+          <CarouselNext className="mr-4 md:mr-16" />
+        </Carousel>
     </div>
   
    

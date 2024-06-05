@@ -12,6 +12,7 @@ interface ListingCardProps {
     category: string;
     location: string;
     imagePath: string;
+    images: string[];
     barea: number;
     userId: string | undefined;
     isBookmarked?: boolean;
@@ -35,7 +36,8 @@ export function ListingCard(props: ListingCardProps) {
             <div className="flex flex-col cursor-pointer hover:bg-slate-100 rounded-sm dark:hover:bg-slate-900 p-2">
             <div className="relative h-48 sm:h-72">
                 <Image
-                    src={`https://ctqlsgdqdxtmapwwtslv.supabase.co/storage/v1/object/public/images/${props.imagePath}` ?? '/c.png' } 
+                src={props.images && props.images.length > 0 ? props.images[0] : '/c.png'}
+
                     alt="Image of House"
                     fill
                     className="h-full rounded-tr-2xl rounded-tl-[80px] rounded-bl-[20px] object-cover mb-3"
