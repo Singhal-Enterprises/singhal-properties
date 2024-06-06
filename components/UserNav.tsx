@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark, faHandshake, faAddressCard } from '@fortawesome/free-regular-svg-icons'
 import { faHome, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { Home } from 'lucide-react';
 
 const UserNav = async () => {
     const {getUser} = getKindeServerSession();
@@ -17,7 +18,6 @@ const UserNav = async () => {
       <div className="rounded-full border px-2 py-2 lg:px-4 lg:py-2 flex items-center gap-x-3">
         <MenuIcon className="w-6 h-6 lg:w-5 lg:h-5" />
 
-        {/* user?.picture ?? */}
         <img
           src={ 
             "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
@@ -33,7 +33,7 @@ const UserNav = async () => {
 
             <DropdownMenuItem>
                 <div  className='w-full flex space-x-2'>
-                <FontAwesomeIcon icon={faHome} className='mt-1 mr-1.5 ml-0.5' />
+                <Home className='w-4 h-4 mr-1 mt-0.5' />                
                 <Link href='/'>
                     Home
                 </Link>

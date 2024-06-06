@@ -109,7 +109,7 @@ export async function createCategoryPage(formData: FormData) {
       },
     });
   
-    return redirect('/');
+    return redirect('/propsubmit');
   }
 
   export async function addToBookmark(formData : FormData){
