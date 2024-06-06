@@ -63,7 +63,7 @@ function page() {
                 className="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" required />
             <input type='text' placeholder='Subject' name='subject'
                 className="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" required />
-            <input type='number' placeholder='Phone No' name='number'
+            <input type='number' placeholder='Phone No' name='phone'
                 className="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" required />
             <textarea placeholder='Message' name='message'
                 className="w-full rounded-md px-4 border text-sm pt-2.5 outline-[#007bff]" required></textarea>
