@@ -74,7 +74,6 @@ const UserNav = async () => {
             <FontAwesomeIcon icon={faRightFromBracket} className='mt-1' />
             <LogoutLink>Log Out</LogoutLink>
                 </div>
-           
             </DropdownMenuItem>
            
             </>
