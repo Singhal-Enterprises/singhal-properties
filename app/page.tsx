@@ -8,6 +8,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Footer from "@/components/footer";
 import Hero from "@/components/Hero";
 import { Separator } from "@/components/ui/separator"
+import { unstable_noStore as noStore}  from "next/cache";
 
 async function getListings({
   searchParams,
@@ -19,6 +20,7 @@ async function getListings({
 
   }
 }) {
+  noStore();
   const data = await prisma.home.findMany({
     where: {
       addedCategory: true,

@@ -5,8 +5,10 @@ import { ListingCard } from "@/components/ListingCard";
 import { NoItems } from "@/components/NoItems";
 import Footer from "@/components/footer";
 import { Separator } from "@/components/ui/separator";
+import { unstable_noStore as noStore}  from "next/cache";
 
 async function getBookmarkList(userId: string) {
+    noStore();
     const data = await prisma.bookmark.findMany({
         where: {
             userId: userId,

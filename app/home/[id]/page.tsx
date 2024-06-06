@@ -4,9 +4,11 @@ import { BedDouble, MapPin, Bath, LandPlot, Building2, Landmark,ShieldQuestion, 
 import {Carousel, CarouselContent, CarouselItem, CarouselNext,CarouselPrevious} from "@/components/ui/carousel";
 import Footer from "@/components/footer";
 import { Separator } from "@/components/ui/separator";
+import { unstable_noStore as noStore}  from "next/cache";
 
 
 async function getData(homeId:string) {
+    noStore();
     const data = await prisma.home.findUnique({
     where: {
         id: homeId,

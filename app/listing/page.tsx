@@ -5,9 +5,11 @@ import { NoItems } from "@/components/NoItems";
 import { ListingCard } from "@/components/ListingCard";
 import Footer from "@/components/footer";
 import { Separator } from "@/components/ui/separator";
+import { unstable_noStore as noStore}  from "next/cache";
 
 
 async function getHomes(userId: string) {
+    noStore();
   const data = await prisma.home.findMany({
  where: {
      userId: userId,
