@@ -59,7 +59,7 @@ export default async function Home({
       <Hero />
        <FilterItems />
       
-      <Suspense fallback={<SkeletonLoading />}>
+       <Suspense key={searchParams?.filter} fallback={<SkeletonLoading />}>
       <ShowItems searchParams={searchParams} />
       </Suspense>
       
