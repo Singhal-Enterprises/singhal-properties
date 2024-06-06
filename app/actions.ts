@@ -2,9 +2,31 @@
 
 import { redirect } from "next/navigation";
 import prisma from "./lib/db"
-import { supabase } from "./lib/supabase";
 import { Owner, Status } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY)
+
+export async function contactMail(formData: FormData) {
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const subject = formData.get("subject") as string;
+    const phone = formData.get("phone") as string
+    const message = formData.get("message") as string;
+
+    console.log(name, email, subject, message, phone);
+    
+  
+    await resend.emails.send({
+      from: "onboarding@resend.dev",
+      to: "cherrymx317@gmail.com",
+      subject: `Message from contact: ${subject}`,
+      text: `Name: ${name}\nEmail: ${email}\n\nMessage: ${message}\n\nPhone Number: ${phone}`,
+    });
+
+    redirect("/contactsubmit");
+}
 
 
 export async function listProperty({ userId }: { userId: string }) {

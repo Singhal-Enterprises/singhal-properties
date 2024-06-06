@@ -73,10 +73,12 @@ export default async function HomeRoute(
         </Carousel>
     </div>
   
+    <Separator className="mt-2 mb-4" />
+
    
     <div className="flex justify-between items-center gap-x-24 mt-8 ml-5">
-    <div className="w-2/3">
-        <h1 className="text-3xl font-medium text-gray-900 dark:text-white flex items-center gap-2 mb-3">
+    <div className="w-full">
+        <h1 className="lg:text-3xl md:text-2xl text-xl font-medium text-gray-900 dark:text-white flex items-center gap-2 mb-3">
             <span>{data?.title ? data.title : '-NA-'}</span>
         </h1>
         <div className="mb-4 flex flex-wrap gap-4 mt-1">
@@ -85,20 +87,24 @@ export default async function HomeRoute(
             <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                 {data?.location ? data.location : '-NA-'}
             </h3>
-        </div>
-        <div className="flex items-center gap-2">
+
+            <div className="flex items-center gap-2">
             <LandPlot color="#8455dd" />
             <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                 {data?.categoryName ? data.categoryName : '-NA-'}
             </h3>
         </div>
+        </div>
+
     </div>
-    <p className="text-muted-foreground text-sm mt-2">
+    <Separator className="mt-2 mb-4" />
+    <p className="text-muted-foreground text-sm mt-2 w-full">
             {data?.description ? data.description : '-NA-'}
         </p>
     </div>
+    
 </div>
-
+<Separator className="mt-6 mb-4" />
 
       <div className="flex flex-wrap gap-4 mt-8">
   <article className="rounded-lg border border-gray-100 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 w-full md:w-[calc(50%-1rem)]">
