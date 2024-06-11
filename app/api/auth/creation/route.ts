@@ -30,5 +30,6 @@ export async function GET() {
         });
     }
 
-    return NextResponse.redirect('http://localhost:3000');
+    return NextResponse.redirect(process.env.AUTH_REDIRECT_URL as string);
+
 }

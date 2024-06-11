@@ -44,7 +44,18 @@ export default async function HomeRoute(
     }
 ) {
     const data = await getData(params.id);
+    const articles = [
+      { title: 'Link', value: 'link', Icon: MapPin },
+      { title: 'Bedrooms', value: data?.beds, Icon: BedDouble, unit: 'Bedrooms' },
+      { title: 'Bathrooms', value: data?.baths, Icon: Bath, unit: 'Bathrooms' },
+      { title: 'Built up Area', value: data?.barea, Icon: LandPlot, unit: 'sq.ft' },
+      { title: 'Carpet Area', value: data?.carea, Icon: LandPlot, unit: 'sq.ft' },
+      { title: 'Total Floors', value: data?.totalFloors, Icon: Building2, unit: 'Floors' },
+      { title: 'Property on Floor Number', value: data?.propertyOnFloor, Icon: Landmark, unit: 'Floor' },
+      { title: 'Owner', value: data?.owner, Icon: Layers3 },
+    ];
   return (
+    <>
     <div className="w-full mx-auto mt-5 mb-12 p-10">
     <span className="text-2xl md:text-3xl font-bold ml-4 md:ml-11">
       Property Images
@@ -73,10 +84,12 @@ export default async function HomeRoute(
         </Carousel>
     </div>
   
+    <Separator className="mt-2 mb-4" />
+
    
     <div className="flex justify-between items-center gap-x-24 mt-8 ml-5">
-    <div className="w-2/3">
-        <h1 className="text-3xl font-medium text-gray-900 dark:text-white flex items-center gap-2 mb-3">
+    <div className="w-full">
+        <h1 className="lg:text-3xl md:text-2xl text-xl font-medium text-gray-900 dark:text-white flex items-center gap-2 mb-3">
             <span>{data?.title ? data.title : '-NA-'}</span>
         </h1>
         <div className="mb-4 flex flex-wrap gap-4 mt-1">
@@ -85,160 +98,50 @@ export default async function HomeRoute(
             <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                 {data?.location ? data.location : '-NA-'}
             </h3>
-        </div>
-        <div className="flex items-center gap-2">
+
+            <div className="flex items-center gap-2">
             <LandPlot color="#8455dd" />
             <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                 {data?.categoryName ? data.categoryName : '-NA-'}
             </h3>
         </div>
+        </div>
+        <div className="flex items-center gap-2 overflow-hidden">
+            <LandPlot color="#8455dd" />
+            <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                {data?.status ? data.status : '-NA-'}
+            </h3>
+        </div>
     </div>
-    <p className="text-muted-foreground text-sm mt-2">
+    
+    <Separator className="mt-2 mb-4" />
+    <p className="text-muted-foreground text-sm mt-2 w-full">
             {data?.description ? data.description : '-NA-'}
         </p>
     </div>
+    
 </div>
 
+<Separator className="mt-6 mb-4" />
 
-      <div className="flex flex-wrap gap-4 mt-8">
-  <article className="rounded-lg border border-gray-100 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 w-full md:w-[calc(50%-1rem)]">
-    <div className="flex items-center justify-between">
-      <div>
-        <p className="text-sm text-gray-500 dark:text-gray-400">Link</p>
-        <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">link</p>
-      </div>
-      <span className="rounded-full bg-blue-100 p-3 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
-        <MapPin color="#8455dd" />
-      </span>
+    
+<div className="grid grid-cols-2 gap-2 sm:gap-4 p-4">
+  {articles.map((article, index) => (
+    <div key={index} className="flex flex-col items-center justify-center border border-gray-300 dark:border-gray-700 p-4 rounded-lg">
+      <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400">{article.title}</p>
+      <article.Icon size={24} color="#8455dd" className="mt-2" />
+      <p className="mt-2 lg:text-lg sm:text-sm font-medium text-gray-900 dark:text-white">
+        {article.value ? article.value : '-NA-'} {article.unit ? article.unit : ''}
+      </p>
     </div>
-  </article>
-
-  <article className="rounded-lg border border-gray-100 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 w-full md:w-[calc(50%-1rem)]">
-    <div className="flex items-center justify-between">
-    <div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Bedrooms</p>
-            {data?.beds !== 0 ? (
-                <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">{data?.beds} Bedrooms</p>
-            ) : (
-                <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">-NA-</p>
-            )}
-        </div>
-      <span className="rounded-full bg-blue-100 p-3 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
-        <BedDouble color="#8455dd" />
-      </span>
-    </div>
-  </article>
-
-
-  <article className="rounded-lg border border-gray-100 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 w-full md:w-[calc(50%-1rem)]">
-<div className="flex items-center justify-between">
-<div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Bathrooms</p>
-            {data?.baths !== 0 ? (
-                <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">{data?.baths} Bathrooms</p>
-            ) : (
-                <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">-NA-</p>
-            )}
-        </div>
-
-    <span className="rounded-full bg-blue-100 p-3 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
-    <Bath color="#8455dd" />
-    </span>
+  ))}
 </div>
 
-</article>
-
-<article className="rounded-lg border border-gray-100 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 w-full md:w-[calc(50%-1rem)]">
-<div className="flex items-center justify-between">
-<div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Built up Area</p>
-            {data?.barea !== 0 ? (
-                <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">{data?.barea} sq.ft</p>
-            ) : (
-                <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">-NA-</p>
-            )}
-        </div>
-
-    <span className="rounded-full bg-blue-100 p-3 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
-    <LandPlot color="#8455dd" />
-    </span>
-</div>
-
-</article>
-
-<article className="rounded-lg border border-gray-100 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 w-full md:w-[calc(50%-1rem)]">
-<div className="flex items-center justify-between">
-<div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Carpet Area</p>
-            {data?.carea !== 0 ? (
-                <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">{data?.carea} sq.Ft</p>
-            ) : (
-                <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">-NA-</p>
-            )}
-        </div>
-
-    <span className="rounded-full bg-blue-100 p-3 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
-    <LandPlot color="#8455dd" />
-    </span>
-</div>
-
-</article>
-
-<article className="rounded-lg border border-gray-100 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 w-full md:w-[calc(50%-1rem)]">
-<div className="flex items-center justify-between">
-<div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Total Floors</p>
-            {data?.totalFloors !== 0 ? (
-                <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">{data?.totalFloors} Floors</p>
-            ) : (
-                <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">-NA-</p>
-            )}
-        </div>
-
-    <span className="rounded-full bg-blue-100 p-3 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
-    <Building2 color="#8455dd" />
-        </span>
-</div>
-
-</article>
-
-<article className="rounded-lg border border-gray-100 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 w-full md:w-[calc(50%-1rem)]">
-<div className="flex items-center justify-between">
-<div>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Property on Floor Number</p>
-            {data?.propertyOnFloor !== 0 ? (
-                <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">Floor {data?.propertyOnFloor}</p>
-            ) : (
-                <p className="text-2xl font-medium text-gray-900 dark:text-white mt-2">-NA-</p>
-            )}
-        </div>
-
-    <span className="rounded-full bg-blue-100 p-3 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
-    <Landmark color="#8455dd" />
-    </span>
-</div>
-
-</article>
-
-<article className="rounded-lg border border-gray-100 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 w-full md:w-[calc(50%-1rem)]">
-<div className="flex items-center justify-between">
-    <div>
-        <p className="text-sm text-gray-500 dark:text-gray-400">Status</p>
-
-        <p className="text-lg font-medium text-gray-900 dark:text-white mt-2"> {data?.status ?? '-NA-'} </p>
-    </div>
-
-    <span className="rounded-full bg-blue-100 p-3 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
-    <ShieldQuestion color="#8455dd" />
-    </span>
-</div>
-
-</article>
-
-    </div>
     <Separator className="mt-10 mb-10" />
      <Footer />
     </div>
+
+    </>
     
     );
 }
