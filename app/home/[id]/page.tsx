@@ -5,6 +5,10 @@ import {Carousel, CarouselContent, CarouselItem, CarouselNext,CarouselPrevious} 
 import Footer from "@/components/footer";
 import { Separator } from "@/components/ui/separator";
 import { unstable_noStore as noStore}  from "next/cache";
+import { Mail, PhoneCall } from "lucide-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { buyprop } from "@/app/actions";
 
 
 async function getData(homeId:string) {
@@ -44,6 +48,7 @@ export default async function HomeRoute(
     }
 ) {
     const data = await getData(params.id);
+    const homeId = data?.id;
     const articles = [
       { title: 'Type', value: data?.categoryName, Icon: Columns3 },
       { title: 'Bedrooms', value: data?.beds, Icon: BedDouble, unit: 'Bedrooms' },
@@ -131,11 +136,61 @@ export default async function HomeRoute(
       <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400">{article.title}</p>
       <article.Icon size={24} color="#8455dd" className="mt-2" />
       <p className="mt-2 lg:text-lg sm:text-sm font-medium text-gray-900 dark:text-white">
-        {article.value ? article.value : '-NA-'} {article.unit ? article.unit : ''}
+      {article.value ? `${article.value} ${article.unit ? article.unit : ''}` : 'No Info'}
       </p>
     </div>
   ))}
 </div>
+<div className="my-6">
+            <div className="grid sm:grid-cols-2 items-center gap-16 p-8 mx-auto max-w-4xl bg-transparent shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md text-white font-[sans-serif]">
+                <div>
+                    <h1 className="text-xl font-extrabold">Interested in this Property?</h1>
+                    <p className="text-sm text-gray-400 mt-3">Reach out to us today!</p>
+                    <div className="mt-12">
+                        <h2 className="text-lg font-extrabold">Email</h2>
+                        <ul className="mt-3">
+                            <li className="flex items-center gap-2">
+                                <div className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+                                <Mail />
+                                </div>
+                                <strong className="hover:text-green-400 text-blue-500"><a href="mailto:singhalpropertyofficial@gmail.com">Click Here to Mail or Fill the Form</a></strong>                                    
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="mt-12">
+                        <h2 className="text-lg font-extrabold text-purple-500">Want to Contact Directly? Call or Whatsapp by Clicking on Icons</h2>
+                        <ul className="flex mt-3 space-x-4">
+                            <li className="bg-transparent h-10 w-10 rounded-full flex items-center justify-center shrink-0 hover:bg-blue-500">
+                                <a href="tel:+919413353633">
+                                <PhoneCall />
+                                </a>
+                            </li>
+                            <li className="bg-transparent h-10 w-10 rounded-full flex items-center justify-center shrink-0 hover:bg-green-600">
+                                <a href="https://wa.me/919413353633">
+                                <FontAwesomeIcon icon={faWhatsapp} className='h-7 w-7' />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <form className="ml-auto space-y-4" action={buyprop} method="post">
+            <input type='text' placeholder='Your Name' name='name'
+                className="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" required />
+            <input type='email' placeholder='Your Email' name='email'
+                className="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" required />
+            <input type='text' placeholder='Subject' name='subject'
+                className="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" required />
+            <input type='number' placeholder='Your Phone No' name='phone'
+                className="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" required />
+            <textarea placeholder='Your Message' name='message'
+                className="w-full rounded-md px-4 border text-sm pt-2.5 outline-[#007bff]" required></textarea>
+              <input type='hidden' name='homeId' value={homeId} />
+            <button type='submit'
+                className="text-white bg-[#007bff] hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-2.5 w-full">Send</button>
+        </form>
+            </div>
+        </div>
 
     <Separator className="mt-10 mb-10" />
      <Footer />

@@ -16,13 +16,10 @@ function page() {
                         <h2 className="text-lg font-extrabold">Email</h2>
                         <ul className="mt-3">
                             <li className="flex items-center">
-                                <div className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+                                <div className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0 gap-1">
                                 <Mail />
                                 </div>
-                                <a target="blank" href="#" className="text-[#007bff] text-sm ml-3">
-                                    <small className="block">Mail</small>
-                                    <strong><a href="mailto:singhalpropertyofficial@gmail.com">singhalpropertyofficial@gmail.com</a></strong>
-                                </a>
+                                    <strong className='text-blue-500 ml-3 hover:text-green-500'><a href="mailto:singhalpropertyofficial@gmail.com">singhalpropertyofficial@gmail.com</a></strong>
                             </li>
                         </ul>
                     </div>

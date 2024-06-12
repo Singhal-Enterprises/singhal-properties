@@ -33,7 +33,7 @@ export function ListingCard(props: ListingCardProps) {
     return (
         <>
             <div className="flex flex-col cursor-pointer hover:bg-slate-100 rounded-sm dark:hover:bg-slate-900 p-2">
-            <div className="relative h-48 sm:h-72">
+            <div className="relative h-48 sm:h-72 md:h-48 lg:h-72 xl:h-72">
                 <Image
                 src={props.images && props.images.length > 0 ? props.images[0] : '/c.png'}
 

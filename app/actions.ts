@@ -15,7 +15,6 @@ export async function contactMail(formData: FormData) {
     const phone = formData.get("phone") as string
     const message = formData.get("message") as string;
 
-    console.log(name, email, subject, message, phone);
     
   
     await resend.emails.send({
@@ -23,6 +22,24 @@ export async function contactMail(formData: FormData) {
       to: "cherrymx317@gmail.com",
       subject: `Message from contact: ${subject}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage: ${message}\n\nPhone Number: ${phone}`,
+    });
+
+    redirect("/contactsubmit");
+}
+
+export async function buyprop(formData: FormData) {
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const subject = formData.get("subject") as string;
+    const phone = formData.get("phone") as string
+    const message = formData.get("message") as string;
+    const homeId = formData.get("homeId") as string;    
+  
+    await resend.emails.send({
+      from: "onboarding@resend.dev",
+      to: "cherrymx317@gmail.com",
+      subject: `Message from contact: ${subject}`,
+      text: `Sender Name: ${name}\nEmail: ${email}\n\nMessage: ${message}\n\nPhone Number: ${phone} \n\nHomeId: ${homeId}`,
     });
 
     redirect("/contactsubmit");
