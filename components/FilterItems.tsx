@@ -24,8 +24,8 @@ const FilterItems = () => {
     [searchParams]
   );
   return (
-    <div className='flex gap-x-10 mt-5 justify-center items-center overflow-x-scroll no-scrollbar'>
-        {categoryItems.map((item)=>(
+<div className='flex lg:gap-x-10 gap-x-3 mt-5 justify-center items-center overflow-x-scroll no-scrollbar px-2'>
+{categoryItems.map((item)=>(
             <Link
             key={item.id}
             href={pathname + "?" + createQueryString("filter", item.name)}

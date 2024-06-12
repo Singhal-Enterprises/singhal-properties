@@ -94,9 +94,9 @@ export function ListingCard(props: ListingCardProps) {
                 <p className="text-muted-foreground text-xs sm:text-sm line-clamp-2">
                     {props.description}
                 </p>
-                <p className="pt-2 text-muted-foreground text-xs sm:text-sm flex justify-between items-center mt-1">
+                <p className="pt-2 text-muted-foreground text-xs sm:text-sm flex justify-start items-start mt-1">
                     <Link href={`/home/${props.homeId}`}>
-                        <Button className="w-15 h-7">View</Button>
+                        <Button className="w-15 h-7">View Property</Button>
                     </Link>
                 </p>
             </div>

@@ -1,6 +1,6 @@
 import prisma from "@/app/lib/db"
 import Image from "next/image";
-import { BedDouble, MapPin, Bath, LandPlot, Building2, Landmark,ShieldQuestion, Layers3 } from "lucide-react";
+import { BedDouble, MapPin, Bath, LandPlot, Building2, Landmark, Layers3, Columns3 } from "lucide-react";
 import {Carousel, CarouselContent, CarouselItem, CarouselNext,CarouselPrevious} from "@/components/ui/carousel";
 import Footer from "@/components/footer";
 import { Separator } from "@/components/ui/separator";
@@ -45,7 +45,7 @@ export default async function HomeRoute(
 ) {
     const data = await getData(params.id);
     const articles = [
-      { title: 'Link', value: 'link', Icon: MapPin },
+      { title: 'Type', value: data?.categoryName, Icon: Columns3 },
       { title: 'Bedrooms', value: data?.beds, Icon: BedDouble, unit: 'Bedrooms' },
       { title: 'Bathrooms', value: data?.baths, Icon: Bath, unit: 'Bathrooms' },
       { title: 'Built up Area', value: data?.barea, Icon: LandPlot, unit: 'sq.ft' },
