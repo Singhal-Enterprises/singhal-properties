@@ -7,6 +7,7 @@ import { revalidatePath } from "next/cache";
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY)
+const emailaddress = process.env.EMAIL_ADDRESS as string
 
 export async function contactMail(formData: FormData) {
     const name = formData.get("name") as string;
@@ -15,14 +16,31 @@ export async function contactMail(formData: FormData) {
     const phone = formData.get("phone") as string
     const message = formData.get("message") as string;
 
-    console.log(name, email, subject, message, phone);
     
   
     await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "cherrymx317@gmail.com",
+      to: emailaddress,
       subject: `Message from contact: ${subject}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage: ${message}\n\nPhone Number: ${phone}`,
+    });
+
+    redirect("/contactsubmit");
+}
+
+export async function buyprop(formData: FormData) {
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const subject = formData.get("subject") as string;
+    const phone = formData.get("phone") as string
+    const message = formData.get("message") as string;
+    const homeId = formData.get("homeId") as string;    
+  
+    await resend.emails.send({
+      from: "onboarding@resend.dev",
+      to: emailaddress,
+      subject: `Message from contact: ${subject}`,
+      text: `Sender Name: ${name}\nEmail: ${email}\n\nMessage: ${message}\n\nPhone Number: ${phone} \n\nHomeId: ${homeId}`,
     });
 
     redirect("/contactsubmit");
@@ -103,6 +121,8 @@ export async function createCategoryPage(formData: FormData) {
     const status = formData.get("status") as string;
     const barea = formData.get("barea") as string;
     const carea = formData.get("carea") as string;
+    const ytlink = formData.get("ytlink") as string;
+    const userNumber = formData.get("userNumber") as string;
   
     const ownerEnum = Object.values(Owner).includes(owner as Owner) ? owner as Owner : null;
     const statusEnum = Object.values(Status).includes(status as Status) ? status as Status : null;
@@ -125,6 +145,8 @@ export async function createCategoryPage(formData: FormData) {
         status: statusEnum,
         barea: Number(barea),
         carea: Number(carea),
+        ytlink: ytlink,
+        userNumber: BigInt(userNumber),
         addedDescription: true,
         addedLocation: true,
         approval: false,

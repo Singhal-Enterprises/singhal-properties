@@ -2,8 +2,6 @@ import { SquareCheckBig, PhoneCall, HomeIcon } from "lucide-react";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-import Footer from "@/components/footer";
-
 
 export default function propsubmit() {
     return (
@@ -39,7 +37,6 @@ export default function propsubmit() {
         </div>
       </div>
       <Separator className="mb-10" />
-      <Footer />
         </>
 
     );
