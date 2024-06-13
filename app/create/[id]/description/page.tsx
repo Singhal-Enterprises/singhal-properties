@@ -53,10 +53,20 @@ function DescriptionPage( { params } : { params: { id: string } }) {
               placeholder="Please describe your home..."
             />
           </div>
+          <div className="flex flex-col gap-y-2">
+            <Label>Your Phone Number: REQUIRED</Label>
+            <Input
+              name="userNumber"
+              type='number'
+              required
+              placeholder="Only for us to Contact You for Queries and Updates"
+            />
+          </div>
 
           <div className="flex flex-col gap-y-2">
             <input type="hidden" name="images" value={JSON.stringify(images)} />
             <Label>Upload Images</Label>
+            <h3 className='text-muted-foreground'>Once Submitted wait few seconds till 100% Upload</h3>
             <UploadDropzone endpoint='imageUploader'
              onClientUploadComplete={(res) => {
               setImages(res.map((item) => item.url));
@@ -67,6 +77,15 @@ function DescriptionPage( { params } : { params: { id: string } }) {
              }}
             />
           </div>
+          <div className="flex flex-col gap-y-2">
+            <Label>Property Video URL if any</Label>
+            <Input
+              name="ytlink"
+              type="text"
+              placeholder="Youtube Video URL of your property if any..."
+            />
+          </div>
+
           
           <Card>
             <CardHeader className="flex flex-col gap-y-5">

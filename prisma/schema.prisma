@@ -37,6 +37,7 @@ model Home {
   carea Float?
   images String[]
   categoryName String?
+  ytlink String?
   Bookmark Bookmark[]
 
   addedCategory Boolean @default(false)
@@ -51,6 +52,7 @@ model Home {
   totalFloors Int?
   propertyOnFloor Int?
   status Status?
+  userNumber BigInt?
 }
 
 enum Owner {

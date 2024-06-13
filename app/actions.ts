@@ -120,6 +120,8 @@ export async function createCategoryPage(formData: FormData) {
     const status = formData.get("status") as string;
     const barea = formData.get("barea") as string;
     const carea = formData.get("carea") as string;
+    const ytlink = formData.get("ytlink") as string;
+    const userNumber = formData.get("userNumber") as string;
   
     const ownerEnum = Object.values(Owner).includes(owner as Owner) ? owner as Owner : null;
     const statusEnum = Object.values(Status).includes(status as Status) ? status as Status : null;
@@ -142,6 +144,8 @@ export async function createCategoryPage(formData: FormData) {
         status: statusEnum,
         barea: Number(barea),
         carea: Number(carea),
+        ytlink: ytlink,
+        userNumber: BigInt(userNumber),
         addedDescription: true,
         addedLocation: true,
         approval: false,
