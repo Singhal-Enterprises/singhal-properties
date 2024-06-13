@@ -166,10 +166,10 @@ export default async function HomeRoute(
   ))}
 </div>
 <div className="my-6">
-            <div className="grid sm:grid-cols-2 items-center gap-16 p-8 mx-auto max-w-4xl bg-transparent shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md text-white font-[sans-serif]">
+            <div className="grid sm:grid-cols-2 items-center gap-16 p-8 mx-auto max-w-4xl bg-transparent shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md font-[sans-serif]">
                 <div>
-                    <h1 className="text-xl font-extrabold text-purple-500">Interested in this Property?</h1>
-                    <p className="text-sm text-gray-400 mt-3">Reach out to us today!</p>
+                    <h1 className="text-xl font-extrabold">Interested in this Property?</h1>
+                    <p className="text-sm mt-3 text-muted-foreground">Reach out to us today!</p>
                     <div className="mt-1">
                         <h2 className="text-lg font-extrabold">Email</h2>
                         <ul className="mt-3">
@@ -182,7 +182,7 @@ export default async function HomeRoute(
                         </ul>
                     </div>
                     <div className="mt-5">
-                        <h2 className="text-lg font-extrabold text-purple-500">Want to Contact Directly? Call or Whatsapp by Clicking on Icons</h2>
+                        <h2 className="text-lg font-extrabold">Want to Contact Directly? Call or Whatsapp by Clicking on Icons</h2>
                         <ul className="flex mt-3 space-x-4">
                             <li className="bg-slate-500 h-10 w-10 rounded-full flex items-center justify-center shrink-0 hover:bg-blue-500">
                                 <a href="tel:+919413353633">
