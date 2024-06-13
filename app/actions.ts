@@ -7,6 +7,7 @@ import { revalidatePath } from "next/cache";
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY)
+const emailaddress = process.env.EMAIL_ADDRESS as string
 
 export async function contactMail(formData: FormData) {
     const name = formData.get("name") as string;
@@ -19,7 +20,7 @@ export async function contactMail(formData: FormData) {
   
     await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "cherrymx317@gmail.com",
+      to: emailaddress,
       subject: `Message from contact: ${subject}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage: ${message}\n\nPhone Number: ${phone}`,
     });
@@ -37,7 +38,7 @@ export async function buyprop(formData: FormData) {
   
     await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "cherrymx317@gmail.com",
+      to: emailaddress,
       subject: `Message from contact: ${subject}`,
       text: `Sender Name: ${name}\nEmail: ${email}\n\nMessage: ${message}\n\nPhone Number: ${phone} \n\nHomeId: ${homeId}`,
     });
