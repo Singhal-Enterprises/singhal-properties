@@ -168,9 +168,9 @@ export default async function HomeRoute(
 <div className="my-6">
             <div className="grid sm:grid-cols-2 items-center gap-16 p-8 mx-auto max-w-4xl bg-transparent shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md text-white font-[sans-serif]">
                 <div>
-                    <h1 className="text-xl font-extrabold">Interested in this Property?</h1>
+                    <h1 className="text-xl font-extrabold text-purple-500">Interested in this Property?</h1>
                     <p className="text-sm text-gray-400 mt-3">Reach out to us today!</p>
-                    <div className="mt-12">
+                    <div className="mt-1">
                         <h2 className="text-lg font-extrabold">Email</h2>
                         <ul className="mt-3">
                             <li className="flex items-center gap-2">
@@ -181,22 +181,21 @@ export default async function HomeRoute(
                             </li>
                         </ul>
                     </div>
-                    <div className="mt-12">
+                    <div className="mt-5">
                         <h2 className="text-lg font-extrabold text-purple-500">Want to Contact Directly? Call or Whatsapp by Clicking on Icons</h2>
                         <ul className="flex mt-3 space-x-4">
-                            <li className="bg-transparent h-10 w-10 rounded-full flex items-center justify-center shrink-0 hover:bg-blue-500">
+                            <li className="bg-slate-500 h-10 w-10 rounded-full flex items-center justify-center shrink-0 hover:bg-blue-500">
                                 <a href="tel:+919413353633">
-                                <PhoneCall />
+                                <PhoneCall style={{ color: 'yellow' }}/>
                                 </a>
                             </li>
-                            <li className="bg-transparent h-10 w-10 rounded-full flex items-center justify-center shrink-0 hover:bg-green-600">
+                            <li className="bg-slate-400 h-10 w-10 rounded-full flex items-center justify-center shrink-0 hover:bg-green-600">
                                 <a href="https://wa.me/919413353633">
-                                <FontAwesomeIcon icon={faWhatsapp} className='h-7 w-7' />
+                                <FontAwesomeIcon icon={faWhatsapp} className='h-7 w-7' style={{ color: 'green' }}/>
                                 </a>
                             </li>
                         </ul>
                     </div>
-
                 </div>
                 <form className="ml-auto space-y-4" action={buyprop} method="post">
             <input type='text' placeholder='Your Name' name='name'
