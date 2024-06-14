@@ -21,17 +21,23 @@ const PaginationControls: FC<PaginationControlsProps> = ({
   const router = useRouter()
   const searchParams = useSearchParams()
 
-  const page = Number(searchParams.get('page') ?? '1')
-  const per_page = Number(searchParams.get('per_page') ?? '4')
+  const filter = searchParams.get('filter') ?? ''
+
+  const handlePageChange = (newPage: number) => {
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('page', newPage.toString())
+    if (filter) {
+      params.set('filter', filter)
+    }
+    router.push(`/?${params.toString()}`)
+  }
 
   return (
     <div className='flex gap-2 justify-center mt-4'>
       <button
         className='bg-blue-500 text-white p-1'
         disabled={!hasPrevPage}
-        onClick={() => {
-          router.push(`/?page=${page - 1}&per_page=${per_page}`)
-        }}>
+        onClick={() => handlePageChange(currentPage - 1)}>
         Prev Page
       </button>
 
@@ -42,9 +48,7 @@ const PaginationControls: FC<PaginationControlsProps> = ({
       <button
         className='bg-blue-500 text-white p-1'
         disabled={!hasNextPage}
-        onClick={() => {
-          router.push(`/?page=${page + 1}&per_page=${per_page}`)
-        }}>
+        onClick={() => handlePageChange(currentPage + 1)}>
         Next Page
       </button>
     </div>
