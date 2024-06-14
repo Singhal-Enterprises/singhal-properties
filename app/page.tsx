@@ -24,7 +24,7 @@ async function getListings({
 }) {
   noStore();
   const page = Number(searchParams.page ?? '1');
-  const per_page = Number(searchParams.per_page ?? '4');
+  const per_page = Number(searchParams.per_page ?? '8');
   const start = (page - 1) * per_page;
 
   const [data, total] = await prisma.$transaction([
@@ -103,7 +103,7 @@ async function ShowItems({
   const { data: listings, total } = await getListings({ searchParams, userId: user?.id });
 
   const page = Number(searchParams.page ?? '1');
-  const per_page = Number(searchParams.per_page ?? '4');
+  const per_page = Number(searchParams.per_page ?? '8');
   const totalPages = Math.ceil(total / per_page);
 
   return (
@@ -140,7 +140,7 @@ async function ShowItems({
         totalPages={totalPages}
         perPage={per_page}
       />
-      <Separator className="mb-10" />
+      <Separator className="mb-10 mt-8" />
       <Footer />
     </>
   );

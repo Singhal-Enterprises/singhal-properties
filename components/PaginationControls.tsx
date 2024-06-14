@@ -2,6 +2,7 @@
 
 import { FC } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { Button } from './ui/button'
 
 interface PaginationControlsProps {
   hasNextPage: boolean
@@ -34,23 +35,23 @@ const PaginationControls: FC<PaginationControlsProps> = ({
 
   return (
     <div className='flex gap-2 justify-center mt-4'>
-      <button
-        className='bg-blue-500 text-white p-1'
+      <Button
+        variant={'outline'}
         disabled={!hasPrevPage}
         onClick={() => handlePageChange(currentPage - 1)}>
         Prev Page
-      </button>
+      </Button>
 
-      <div>
+      <div className='flex justify-center items-center'>
         {currentPage} / {totalPages}
       </div>
 
-      <button
-        className='bg-blue-500 text-white p-1'
+      <Button
+        variant={'outline'}
         disabled={!hasNextPage}
         onClick={() => handlePageChange(currentPage + 1)}>
         Next Page
-      </button>
+      </Button>
     </div>
   )
 }
