@@ -18,6 +18,9 @@ const FilterItems = () => {
       const params = new URLSearchParams(searchParams.toString());
 
       params.set(name, value);
+      if (name === "filter") {
+        params.set("page", "1");
+      }
 
       return params.toString();
     },
