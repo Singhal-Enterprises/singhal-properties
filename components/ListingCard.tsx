@@ -5,6 +5,8 @@ import { addToBookmark, deleteBookmark } from "@/app/actions";
 import { DeleteBookmarkButton } from "./SubmitButton";
 import { Layers3, MapPin, LandPlot } from "lucide-react";
 import { Button } from "./ui/button";
+import proplogo from "../public/sd.webp";
+import  {Separator}  from "./ui/separator";
 
 interface ListingCardProps {
     title: string;
@@ -35,8 +37,7 @@ export function ListingCard(props: ListingCardProps) {
             <div className="flex flex-col cursor-pointer hover:bg-slate-100 rounded-sm dark:hover:bg-slate-900 p-2">
             <div className="relative h-48 sm:h-72 md:h-48 lg:h-72 xl:h-72">
                 <Image
-                src={props.images && props.images.length > 0 ? props.images[0] : '/c.png'}
-
+                src={props.images && props.images.length > 0 ? props.images[0] : proplogo}
                     alt="Image of House"
                     fill
                     className="h-full rounded-tr-2xl rounded-tl-[80px] rounded-bl-[20px] object-cover mb-3"
@@ -61,44 +62,53 @@ export function ListingCard(props: ListingCardProps) {
                     )}
             </div>
             )}
-
             </div>
-            <div className="mb-4 flex flex-wrap gap-4 mt-1">
-                    <div className="flex items-center gap-4 text-xs sm:text-sm">
-                        <div className="flex items-center gap-2">
-                            <Layers3 color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth />
-                            <div>
-                                <p className="text-gray-500">Category</p>
-                                <p className="font-medium">{props.category}</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <MapPin color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth />
-                            <div>
-                                <p className="text-gray-500">Location</p>
-                                <p className="font-medium">{truncatedLocation}</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <LandPlot color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth />
-                            <div>
-                                <p className="text-gray-500">Area</p>
-                                <p className="font-medium">{props.barea > 0 ? `${props.barea} sq.ft` : '---'}</p>
-                            </div>
-                        </div>
-                    </div>  
+            <Separator className="mt-2" />
+                        <div className="py-4 overflow-x-auto">
+                <div className="flex flex-row gap-4 min-w-max">
+                <div className="flex items-center gap-2">
+                    <Layers3 color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth className="w-5 h-5 flex-shrink-0" />
+                    <div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Category</p>
+                    <p className="text-sm font-medium text-gray-800 dark:text-gray-200 whitespace-nowrap">{props.category}</p>
+                    </div>
                 </div>
-                <h3 className="font-medium text-base sm:text-lg">
+                
+                <div className="flex items-center gap-2">
+                    <MapPin color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth className="w-5 h-5 flex-shrink-0" />
+                    <div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Location</p>
+                    <p className="text-sm font-medium text-gray-800 dark:text-gray-200 whitespace-nowrap">{truncatedLocation}</p>
+                    </div>
+                </div>
+                
+                <div className="flex items-center gap-2">
+                    <LandPlot color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth className="w-5 h-5 flex-shrink-0" />
+                    <div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Area</p>
+                    <p className="text-sm font-medium text-gray-800 dark:text-gray-200 whitespace-nowrap">
+                        {props.barea > 0 ? `${props.barea} sq.ft` : '--NA--'}
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <Separator />
+                <div>
+                <h3 className="font-medium text-base sm:text-lg mt-1">
                     {props.title}
                 </h3>
-                <p className="text-muted-foreground text-xs sm:text-sm line-clamp-2">
-                    {props.description}
+                <p className="text-muted-foreground text-xs sm:text-sm line-clamp-1">
+                    {props.description ? props.description : "No description provided"}
                 </p>
-                <p className="pt-2 text-muted-foreground text-xs sm:text-sm flex justify-start items-start mt-1">
-                    <Link href={`/home/${props.homeId}`}>
-                        <Button className="w-15 h-7">View Property</Button>
+                <div className="pt-2 mt-auto">
+                <Link href={`/home/${props.homeId}`}>
+                    <Button className="w-full md:w-full sm:w-auto h-8 text-xs sm:text-sm">
+                    View Property</Button>
                     </Link>
-                </p>
+                </div>
+                </div>
+ 
             </div>
         </>
         

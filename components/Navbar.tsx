@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../public/c.png"
+import logo from "../public/c.webp"
 import UserNav from "./UserNav";
 import {Button} from "@/components/ui/button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
 import { listProperty } from "@/app/actions";
 import {ModeToggle} from "./ui/modetoggle";
-import { PhoneCall } from "lucide-react";
 import { RegisterLink, LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { EnquiryButton, ListPropertyButton } from "./SubmitButton";
 
 export default async function Navbar() {
   const {getUser} = getKindeServerSession();
@@ -37,18 +35,10 @@ export default async function Navbar() {
         <ModeToggle />
         </div>
         <form action={listPropertywithId}>
-        <Button className="mr-2 bg-purple-300 dark:bg-purple-600 px-4 flex items-center" variant="outline" type="submit">
-        <FontAwesomeIcon icon={faCirclePlus} height={30} width={30} className="block" />
-        <span className="hidden lg:block">List Property</span>
-      </Button>
+        <ListPropertyButton />
         </form>
       
-      <Button className="mr-2">
-      <PhoneCall className="w-4 h-4 mr-1 block " />
-        <Link href="/contact" className="hidden lg:block">
-          Enquiry
-        </Link>
-      </Button>
+      <EnquiryButton />
       <UserNav />
       </div>
 

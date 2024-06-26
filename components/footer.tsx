@@ -8,8 +8,8 @@ function Footer() {
     <footer className="bg-transparent lg:grid lg:grid-cols-5 mb-4">
     <div className="relative block h-32 sm:h-48 md:h-72 lg:col-span-2 lg:h-full">
     <img
-      src="/c.png"
-      alt=""
+      src="/c.webp"
+      alt="comapny logo"
       className="absolute inset-0 h-full w-full object-contain"
     />
   </div>
