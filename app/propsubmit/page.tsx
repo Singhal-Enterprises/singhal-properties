@@ -2,6 +2,12 @@ import { SquareCheckBig, PhoneCall, HomeIcon } from "lucide-react";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Property Submission",
+  description: "Property Submission Singhal Properties",
+};
 
 export default function propsubmit() {
     return (
