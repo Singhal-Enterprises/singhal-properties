@@ -1,4 +1,6 @@
 import React from 'react'
+import heroimg from '../public/heroimg.webp'
+import Image from 'next/image'
 
 function Hero() {
   return (
@@ -26,9 +28,9 @@ function Hero() {
     </div>
   </div>
 
-  <img
-    alt=""
-    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  <Image
+    alt="hero img"
+    src= {heroimg}
     className="h-full w-full object-cover sm:h-[calc(100%_-_2rem)] sm:self-end sm:rounded-ss-[30px] md:h-[calc(100%_-_4rem)] md:rounded-ss-[60px]"
   />
 </section>

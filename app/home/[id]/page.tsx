@@ -80,7 +80,7 @@ export default async function HomeRoute(
             ) : (
               <CarouselItem>
                 <div className="relative h-[300px] sm:h-[450px] md:h-[550px] lg:h-[650px]">
-                  <Image alt="Default image" src="/c.png" fill className="object-contain w-full h-full rounded-lg" />
+                  <Image alt="Default image" src="/c.webp" fill className="object-contain w-full h-full rounded-lg" />
                 </div>
               </CarouselItem>
             )}
