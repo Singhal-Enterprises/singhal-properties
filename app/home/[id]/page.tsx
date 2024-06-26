@@ -62,7 +62,7 @@ export default async function HomeRoute(
     ];
   return (
     <>
-    <div className="w-full mx-auto mt-5 mb-12 p-10">
+    <div className="w-full mx-auto mt-5 mb-4 p-10">
     <span className="text-2xl md:text-3xl font-bold ml-4 md:ml-11">
       Property Images
     </span>
@@ -90,41 +90,48 @@ export default async function HomeRoute(
         </Carousel>
     </div>
   
-    <Separator className="mt-2 mb-4" />
+    <Separator className="mt-2" />
 
    
     <div className="flex justify-between items-center gap-x-24 mt-8 ml-5">
     <div className="w-full">
-        <h1 className="lg:text-3xl md:text-2xl text-xl font-medium text-gray-900 dark:text-white flex items-center gap-2 mb-3">
-            <span>{data?.title ? data.title : '-NA-'}</span>
-        </h1>
-        <div className="mb-4 flex flex-wrap gap-4 mt-1">
-            <div className="flex items-center gap-4 text-xs sm:text-sm">
-            <MapPin color="#8455dd" />
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-                {data?.location ? data.location : '-NA-'}
-            </h3>
-
-            <div className="flex items-center gap-2">
-            <LandPlot color="#8455dd" />
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-                {data?.categoryName ? data.categoryName : '-NA-'}
-            </h3>
-        </div>
-        </div>
-        <div className="flex items-center gap-2 overflow-hidden">
-            <LandPlot color="#8455dd" />
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-                {data?.status ? data.status : '-NA-'}
-            </h3>
-        </div>
+  <h1 className="lg:text-3xl md:text-2xl text-xl font-medium text-gray-900 dark:text-white flex items-center gap-2 mb-3">
+    <span>{data?.title ? data.title : '-NA-'}</span>
+  </h1>
+  
+  <div className="mb-4 w-full overflow-x-auto">
+    <div className="flex flex-nowrap gap-4 min-w-max">
+      <div className="flex items-center gap-2">
+        <MapPin color="#8455dd" className="w-5 h-5 flex-shrink-0" />
+        <h3 className="text-sm sm:text-base font-medium text-gray-900 dark:text-white whitespace-nowrap">
+          {data?.location ? data.location : '-NA-'}
+        </h3>
+      </div>
+      
+      <div className="flex items-center gap-2">
+        <LandPlot color="#8455dd" className="w-5 h-5 flex-shrink-0" />
+        <h3 className="text-sm sm:text-base font-medium text-gray-900 dark:text-white whitespace-nowrap">
+          {data?.categoryName ? data.categoryName : '-NA-'}
+        </h3>
+      </div>
     </div>
-    
-    <Separator className="mt-2 mb-4" />
-    <p className="text-muted-foreground text-sm mt-2 w-full">
-            {data?.description ? data.description : '-NA-'}
-        </p>
-        <Separator className="mt-2 mb-4" />
+  </div>
+  
+  <Separator className="mt-2 mb-4" />
+  
+    <div className="space-y-4">
+      <p className="text-muted-foreground text-sm w-full">
+        {data?.description ? data.description : '-NA-'}
+      </p>
+      <div className="flex items-center gap-2">
+        <LandPlot color="#8455dd" className="w-5 h-5 flex-shrink-0" />
+        <h3 className="text-sm sm:text-base font-medium text-gray-900 dark:text-white">
+          {data?.status ? data.status : '-NA-'}
+        </h3>
+      </div>
+    </div>
+  
+  <Separator className="mt-2 mb-4" />
 
           <div className="text-muted-foreground text-sm mt-2 w-full">
           <div className="flex items-center justify-start">
