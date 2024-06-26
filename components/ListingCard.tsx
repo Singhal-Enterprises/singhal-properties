@@ -64,7 +64,7 @@ export function ListingCard(props: ListingCardProps) {
             )}
             </div>
             <Separator className="mt-2" />
-                        <div className="py-4 overflow-x-auto">
+                        <div className="py-4 overflow-x-visible">
                 <div className="flex flex-row gap-4 min-w-max">
                 <div className="flex items-center gap-2">
                     <Layers3 color="#a146d2" strokeWidth={1.75} absoluteStrokeWidth className="w-5 h-5 flex-shrink-0" />
@@ -87,7 +87,7 @@ export function ListingCard(props: ListingCardProps) {
                     <div>
                     <p className="text-xs text-gray-500 dark:text-gray-400">Area</p>
                     <p className="text-sm font-medium text-gray-800 dark:text-gray-200 whitespace-nowrap">
-                        {props.barea > 0 ? `${props.barea} sq.ft` : '--NA--'}
+                        {props.barea > 0 ? `${props.barea} sq.ft` : '-NA-'}
                     </p>
                     </div>
                 </div>
