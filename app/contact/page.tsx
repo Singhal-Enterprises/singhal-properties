@@ -3,10 +3,15 @@ import { Mail, PhoneCall } from 'lucide-react';
 import { contactMail } from '../actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Contact Page",
+  description: "Contact Page Singhal Properties",
+};
 
 function page() {
   return (
-   
 <div className="my-6">
             <div className="grid sm:grid-cols-2 items-center gap-16 p-8 mx-auto max-w-4xl bg-transparent shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md font-[sans-serif]">
                 <div>
